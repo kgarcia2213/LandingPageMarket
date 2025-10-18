@@ -201,6 +201,50 @@
       margin-top: 3rem;
     }
 
+    /* Botón flotante de WhatsApp */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-size: 2rem;
+    }
+
+    .whatsapp-button:hover {
+      transform: scale(1.1) rotate(10deg);
+      background: #128C7E;
+    }
+
+    .whatsapp-tooltip {
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      background: #333;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .whatsapp-button:hover .whatsapp-tooltip {
+      opacity: 1;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .shop-layout {
@@ -370,6 +414,12 @@
     </main>
 
   </div>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/34612345678" target="_blank" class="whatsapp-button">
+    <span>💬</span>
+    <span class="whatsapp-tooltip">¿Tienes dudas? Escríbenos</span>
+  </a>
 
   <!-- Footer -->
   <footer>
