@@ -1,58 +1,281 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Restaurante | Demo</title>
-    <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sabor Mediterráneo | Restaurante</title>
+  <meta name="description" content="Disfruta lo mejor de la cocina mediterránea. Menú fresco, ambiente acogedor y reservas fáciles.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #d35400;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    /* Menú */
+    .menu-category {
+      margin-bottom: 1.5rem;
+    }
+
+    .menu-category h3 {
+      color: #2c3e50;
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Horarios */
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .day {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    /* Reservas */
+    .reservation-info {
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .reservation-info p {
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #e67e22;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #d35400;
+    }
+
+    /* Footer con mapa */
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .address {
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .map-container {
+      width: 100%;
+      max-width: 600px;
+      height: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      header p { font-size: 1rem; }
+      .menu-item {
+        flex-direction: column;
+      }
+      .price {
+        align-self: flex-end;
+        margin-top: 4px;
+      }
+      .map-container {
+        height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <h1>🍽️ Restaurante Demo</h1>
-        <p>Bienvenido a nuestro restaurante. Disfruta de nuestros deliciosos platos.</p>
-        <a href="https://wa.me/50762187478?text=Quiero+hacer+una+reserva" target="_blank" class="btn">💬 Reservar por WhatsApp</a>
-    </header>
+
+  <header>
+    <h1>🌿 Sabor Mediterráneo</h1>
+    <p>Auténtica cocina del sur de Europa con ingredientes frescos y sabores inolvidables.</p>
+  </header>
+
+  <div class="container">
 
     <!-- Menú -->
-    <section class="catalogo">
-        <h2>Menú del día</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>🍲 Sopa de Mariscos</h3>
-                <p>$8.00</p>
-            </div>
-            <div class="card">
-                <h3>🥩 Filete a la Parrilla</h3>
-                <p>$12.00</p>
-            </div>
-            <div class="card">
-                <h3>🍝 Pasta Alfredo</h3>
-                <p>$10.00</p>
-            </div>
-            <div class="card">
-                <h3>🥗 Ensalada César</h3>
-                <p>$7.00</p>
-            </div>
+    <section id="menu">
+      <h2>🍽️ Nuestro Menú</h2>
+
+      <div class="menu-category">
+        <h3>Entradas</h3>
+        <div class="menu-item">
+          <span>Ensalada Griega</span>
+          <span class="price">$12</span>
         </div>
+        <div class="menu-item">
+          <span>Hummus con Pan Pita</span>
+          <span class="price">$10</span>
+        </div>
+        <div class="menu-item">
+          <span>Calamares a la Romana</span>
+          <span class="price">$14</span>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <h3>Platos Principales</h3>
+        <div class="menu-item">
+          <span>Paella Valenciana</span>
+          <span class="price">$24</span>
+        </div>
+        <div class="menu-item">
+          <span>Bacalao al Pil Pil</span>
+          <span class="price">$26</span>
+        </div>
+        <div class="menu-item">
+          <span>Cordero al Romero</span>
+          <span class="price">$28</span>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <h3>Postres</h3>
+        <div class="menu-item">
+          <span>Tarta de Limón</span>
+          <span class="price">$8</span>
+        </div>
+        <div class="menu-item">
+          <span>Crema Catalana</span>
+          <span class="price">$9</span>
+        </div>
+      </div>
     </section>
 
     <!-- Horarios -->
-    <section class="catalogo">
-        <h2>Horarios de Atención</h2>
-        <p>Lunes a Viernes: 11:00 AM - 10:00 PM</p>
-        <p>Sábado y Domingo: 12:00 PM - 11:00 PM</p>
+    <section id="horarios">
+      <h2>🕒 Horarios de Atención</h2>
+      <div class="hours-grid">
+        <div><div class="day">Lunes</div> Cerrado</div>
+        <div><div class="day">Martes</div> 12:00 – 22:00</div>
+        <div><div class="day">Miércoles</div> 12:00 – 22:00</div>
+        <div><div class="day">Jueves</div> 12:00 – 22:00</div>
+        <div><div class="day">Viernes</div> 12:00 – 23:00</div>
+        <div><div class="day">Sábado</div> 12:00 – 23:00</div>
+        <div><div class="day">Domingo</div> 12:00 – 20:00</div>
+      </div>
     </section>
 
     <!-- Reservas -->
-    <section class="catalogo">
-        <h2>Reservas</h2>
-        <p>Para reservar una mesa, envíanos un mensaje por WhatsApp:</p>
-        <a href="https://wa.me/50762187478?text=Quiero+hacer+una+reserva" target="_blank" class="btn">💬 Reservar ahora</a>
+    <section id="reservas">
+      <h2>📞 ¿Cómo Reservar?</h2>
+      <div class="reservation-info">
+        <p>Llama al <strong>+34 912 345 678</strong> o envía un WhatsApp.</p>
+        <p>También puedes reservar en línea con solo un clic:</p>
+        <a href="https://wa.me/34612345678" target="_blank" class="btn">Reservar por WhatsApp</a>
+      </div>
     </section>
 
-    <footer class="footer">
-        <p>© 2025 LandingPageMarket | Demo Restaurante</p>
-    </footer>
+  </div>
+
+  <!-- Footer con mapa -->
+  <footer>
+    <div class="footer-content">
+      <div class="address">
+        <p>📍 <strong>Sabor Mediterráneo</strong></p>
+        <p>Calle del Sabor, 123 • 28001 Madrid, España</p>
+      </div>
+      <div class="map-container">
+        <!-- ⚠️ REEMPLAZA ESTE IFRAME POR EL TUYO DE GOOGLE MAPS -->
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.489254345678!2d-3.6901234!3d40.4167752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287e5f9a9b0d%3A0x8a3b4c5d6e7f8a9b!2sCalle%20del%20Sabor%2C%20123%2C%2028001%20Madrid!5e0!3m2!1ses!2ses!4v1712345678901!5m2!1ses!2ses" 
+          allowfullscreen="" 
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
