@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sabor Mediterráneo | Restaurante</title>
-  <meta name="description" content="Experiencia culinaria mediterránea auténtica. Reserva tu mesa hoy.">
+  <meta name="description" content="Menú completo: entradas, platos fuertes, postres y bebidas. Haz tu pedido online.">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -37,7 +37,7 @@
     /* Hero Section */
     .hero {
       background: linear-gradient(rgba(26, 58, 95, 0.7), rgba(26, 58, 95, 0.8)), url('https://images.unsplash.com/photo-1555396273-36794f1a4a25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-      height: 100vh;
+      height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -107,18 +107,42 @@
       border-radius: 2px;
     }
 
-    /* Menú estilo imagen */
-    .menu-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
+    /* Menú por categorías */
+    .menu-category {
+      margin-bottom: 3rem;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+    }
+
+    .category-icon img {
+      width: 70%;
+      filter: invert(1);
+    }
+
+    .category-title {
+      font-size: 1.8rem;
+      color: var(--color-primary);
     }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.2rem;
     }
 
     .menu-item {
@@ -137,10 +161,10 @@
     }
 
     .item-icon {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
-      background: #eee;
+      background: #f0f0f0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -160,7 +184,7 @@
 
     .item-name {
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--color-primary);
     }
 
@@ -172,57 +196,6 @@
       font-weight: bold;
       font-size: 0.9rem;
       margin-left: 1rem;
-    }
-
-    /* Destacado del día */
-    .featured-dish {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .dish-image {
-      width: 300px;
-      height: 250px;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .dish-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .dish-info {
-      flex: 1;
-    }
-
-    .dish-title {
-      font-size: 1.6rem;
-      color: var(--color-primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .dish-desc {
-      color: #666;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .dish-btn {
-      background: var(--color-secondary);
-      color: white;
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.9rem;
     }
 
     /* Horarios */
@@ -250,8 +223,8 @@
       font-style: italic;
     }
 
-    /* Reservas */
-    .reservation-box {
+    /* Pedidos */
+    .order-box {
       background: linear-gradient(135deg, var(--color-primary), #2c5282);
       color: white;
       padding: 3rem;
@@ -261,12 +234,12 @@
       margin: 0 auto;
     }
 
-    .reservation-box h2 {
+    .order-box h2 {
       color: white;
       margin-bottom: 1.5rem;
     }
 
-    .reservation-box p {
+    .order-box p {
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
       opacity: 0.9;
@@ -327,16 +300,7 @@
       .hero h1 { font-size: 2.8rem; }
       .hero p { font-size: 1.1rem; }
       .section { padding: 3rem 1.5rem; }
-      .menu-container {
-        grid-template-columns: 1fr;
-      }
-      .featured-dish {
-        flex-direction: column;
-      }
-      .dish-image {
-        width: 100%;
-        height: 200px;
-      }
+      .hero { height: 80vh; }
       .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -354,6 +318,10 @@
       .item-icon {
         margin-bottom: 0.5rem;
       }
+      .item-price {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
     }
   </style>
 </head>
@@ -362,93 +330,162 @@
   <!-- Hero -->
   <section class="hero">
     <h1>Sabor Mediterráneo</h1>
-    <p>Donde los ingredientes frescos se convierten en momentos inolvidables.</p>
-    <a href="#reservas" class="btn">Reservar Mesa</a>
+    <p>Disfruta nuestro menú completo: entradas, platos fuertes, postres y bebidas.</p>
+    <a href="#pedidos" class="btn">Haz tu pedido</a>
   </section>
 
-  <!-- Menú -->
+  <!-- Menú por categorías -->
   <section class="section" id="menu">
     <div class="container">
-      <h2 class="section-title">Nuestro Menú Diario</h2>
-      <div class="menu-container">
+      <h2 class="section-title">Nuestro Menú</h2>
 
-        <!-- Menú Grid -->
+      <!-- Entradas -->
+      <div class="menu-category">
+        <div class="category-header">
+          <div class="category-icon">
+            <img src="https://via.placeholder.com/30/FFFFFF?text=🥗" alt="Entradas">
+          </div>
+          <h3 class="category-title">Entradas</h3>
+        </div>
         <div class="menu-grid">
-          <!-- Entradas -->
           <div class="menu-item">
             <div class="item-icon">
-              <img src="https://via.placeholder.com/40/FFD700/000000?text=🥩" alt="Carne">
+              <img src="https://via.placeholder.com/40/4CAF50/FFFFFF?text=🥗" alt="Ensalada">
             </div>
             <div class="item-info">
-              <div class="item-name">Carne a la Parrilla</div>
-            </div>
-            <div class="item-price">$18</div>
-          </div>
-
-          <div class="menu-item">
-            <div class="item-icon">
-              <img src="https://via.placeholder.com/40/4CAF50/FFFFFF?text=🐟" alt="Pescado">
-            </div>
-            <div class="item-info">
-              <div class="item-name">Trucha Fresca</div>
-            </div>
-            <div class="item-price">$16</div>
-          </div>
-
-          <div class="menu-item">
-            <div class="item-icon">
-              <img src="https://via.placeholder.com/40/FF9800/FFFFFF?text=🍄" alt="Setas">
-            </div>
-            <div class="item-info">
-              <div class="item-name">Sopa de Setas</div>
-            </div>
-            <div class="item-price">$10</div>
-          </div>
-
-          <div class="menu-item">
-            <div class="item-icon">
-              <img src="https://via.placeholder.com/40/2196F3/FFFFFF?text=🍗" alt="Pollo">
-            </div>
-            <div class="item-info">
-              <div class="item-name">Pollo con Patatas</div>
-            </div>
-            <div class="item-price">$14</div>
-          </div>
-
-          <div class="menu-item">
-            <div class="item-icon">
-              <img src="https://via.placeholder.com/40/E91E63/FFFFFF?text=🍝" alt="Pasta">
-            </div>
-            <div class="item-info">
-              <div class="item-name">Pasta con Puré de Tomate</div>
+              <div class="item-name">Ensalada Griega</div>
             </div>
             <div class="item-price">$12</div>
           </div>
-
           <div class="menu-item">
             <div class="item-icon">
-              <img src="https://via.placeholder.com/40/8BC34A/FFFFFF?text=🥗" alt="Ensalada">
+              <img src="https://via.placeholder.com/40/FF9800/FFFFFF?text=🥙" alt="Hummus">
             </div>
             <div class="item-info">
-              <div class="item-name">Ensalada con Remolacha</div>
+              <div class="item-name">Hummus con Pan Pita</div>
+            </div>
+            <div class="item-price">$10</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/2196F3/FFFFFF?text=🦑" alt="Calamares">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Calamares a la Romana</div>
+            </div>
+            <div class="item-price">$14</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Platos Fuertes -->
+      <div class="menu-category">
+        <div class="category-header">
+          <div class="category-icon">
+            <img src="https://via.placeholder.com/30/FFFFFF?text=🍲" alt="Fuertes">
+          </div>
+          <h3 class="category-title">Platos Fuertes</h3>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/FF5722/FFFFFF?text=🥘" alt="Paella">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Paella Valenciana</div>
+            </div>
+            <div class="item-price">$24</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/607D8B/FFFFFF?text=🐟" alt="Bacalao">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Bacalao al Pil Pil</div>
+            </div>
+            <div class="item-price">$26</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/795548/FFFFFF?text=🍖" alt="Cordero">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Cordero al Romero</div>
+            </div>
+            <div class="item-price">$28</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Postres -->
+      <div class="menu-category">
+        <div class="category-header">
+          <div class="category-icon">
+            <img src="https://via.placeholder.com/30/FFFFFF?text=🍰" alt="Postres">
+          </div>
+          <h3 class="category-title">Postres</h3>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/E91E63/FFFFFF?text=🍋" alt="Limon">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Tarta de Limón</div>
+            </div>
+            <div class="item-price">$8</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/FFC107/000000?text=🍮" alt="Crema">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Crema Catalana</div>
             </div>
             <div class="item-price">$9</div>
           </div>
         </div>
+      </div>
 
-        <!-- Plato Destacado -->
-        <div class="featured-dish">
-          <div class="dish-image">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spaghetti">
+      <!-- Bebidas -->
+      <div class="menu-category">
+        <div class="category-header">
+          <div class="category-icon">
+            <img src="https://via.placeholder.com/30/FFFFFF?text=🍷" alt="Bebidas">
           </div>
-          <div class="dish-info">
-            <h3 class="dish-title">Espaguetis con Tomates Frescos y Salsa</h3>
-            <p class="dish-desc">Una receta clásica de la cocina italiana, preparada con tomates maduros, albahaca fresca y aceite de oliva virgen extra.</p>
-            <a href="#reservas" class="dish-btn">Pedir ahora</a>
+          <h3 class="category-title">Bebidas</h3>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/00BCD4/FFFFFF?text=🍷" alt="Vino">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Vino de la Casa (copa)</div>
+            </div>
+            <div class="item-price">$7</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/4CAF50/FFFFFF?text=🧃" alt="Jugo">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Jugo Natural (naranja/manzana)</div>
+            </div>
+            <div class="item-price">$5</div>
+          </div>
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/212121/FFFFFF?text=💧" alt="Agua">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Agua Mineral</div>
+            </div>
+            <div class="item-price">$3</div>
           </div>
         </div>
-
       </div>
+
     </div>
   </section>
 
@@ -477,14 +514,14 @@
     </div>
   </section>
 
-  <!-- Reservas -->
-  <section class="section" id="reservas">
+  <!-- Pedidos -->
+  <section class="section" id="pedidos">
     <div class="container">
-      <div class="reservation-box">
-        <h2>¿Lista tu mesa?</h2>
-        <p>Llámanos, escríbenos por WhatsApp o reserva en segundos.</p>
+      <div class="order-box">
+        <h2>¿Listo para pedir?</h2>
+        <p>Llama, escríbenos por WhatsApp o haz tu pedido para llevar.</p>
         <p><strong>Teléfono:</strong> +34 912 345 678</p>
-        <a href="https://wa.me/34612345678" target="_blank" class="btn btn-light">Reservar por WhatsApp</a>
+        <a href="https://wa.me/34612345678" target="_blank" class="btn btn-light">Haz tu pedido por WhatsApp</a>
       </div>
     </div>
   </section>
