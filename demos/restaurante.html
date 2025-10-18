@@ -16,13 +16,12 @@
     body {
       font-family: 'Montserrat', sans-serif;
       color: white;
-      background: #0f0f0f;
+      background: #222;
       line-height: 1.6;
-      background-image: 
-        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-        url('https://picsum.photos/1920/1080?random=1');
+      background-image: url('https://picsum.photos/1920/1080?random=1');
       background-size: cover;
       background-attachment: fixed;
+      background-blend-mode: overlay;
     }
 
     h1, h2, h3 {
@@ -32,7 +31,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 8rem 2rem;
+      padding: 6rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -47,7 +46,7 @@
     }
 
     .hero-text h1 {
-      font-size: 3.8rem;
+      font-size: 3.5rem;
       margin-bottom: 1rem;
       line-height: 1.1;
       color: white;
@@ -64,11 +63,11 @@
       display: inline-block;
       background: #ffc107;
       color: #000;
-      padding: 14px 32px;
+      padding: 12px 28px;
       text-decoration: none;
       border-radius: 30px;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
       box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
     }
@@ -84,7 +83,7 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      height: 420px;
+      height: 400px;
     }
 
     .hero-image img {
@@ -118,8 +117,8 @@
       border-radius: 2px;
     }
 
-    /* Menú por categorías */
-    .menu-category {
+    /* Categoría */
+    .category {
       margin-bottom: 3rem;
     }
 
@@ -138,11 +137,9 @@
       align-items: center;
       justify-content: center;
       margin-right: 1rem;
-    }
-
-    .category-icon img {
-      width: 70%;
-      filter: invert(1);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #000;
     }
 
     .category-title {
@@ -150,65 +147,66 @@
       color: white;
     }
 
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem;
+    /* Tarjetas del menú */
+    .menu-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
     }
 
-    .menu-item {
+    .menu-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1rem;
       display: flex;
       align-items: center;
-      padding: 1rem;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(5px);
+      gap: 1rem;
+      min-width: 280px;
+      max-width: 350px;
       border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.3s ease;
+      transition: transform 0.3s;
     }
 
-    .menu-item:hover {
+    .menu-card:hover {
+      transform: translateY(-3px);
       background: rgba(255,255,255,0.1);
-      transform: translateX(6px);
-      border-color: #ffc107;
     }
 
-    .item-icon {
-      width: 45px;
-      height: 45px;
+    .card-icon {
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: #333;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 1rem;
       overflow: hidden;
     }
 
-    .item-icon img {
+    .card-icon img {
       width: 80%;
       height: auto;
       object-fit: cover;
     }
 
-    .item-info {
+    .card-info {
       flex: 1;
     }
 
-    .item-name {
+    .card-name {
       font-weight: 600;
       font-size: 1.05rem;
       color: white;
     }
 
-    .item-price {
+    .card-price {
       background: #ffc107;
       color: #000;
       padding: 4px 10px;
       border-radius: 20px;
       font-weight: bold;
       font-size: 0.9rem;
-      margin-left: 1rem;
     }
 
     /* Horarios */
@@ -314,10 +312,9 @@
       .hero {
         flex-direction: column;
         text-align: center;
-        padding: 5rem 1.5rem;
       }
-      .hero-text h1 { font-size: 2.6rem; }
-      .hero-image { height: 260px; }
+      .hero-text h1 { font-size: 2.5rem; }
+      .hero-image { height: 250px; }
       .section { padding: 3rem 1.5rem; }
       .footer-content {
         grid-template-columns: 1fr;
@@ -327,16 +324,16 @@
     }
 
     @media (max-width: 480px) {
-      .hero-text h1 { font-size: 2.1rem; }
+      .hero-text h1 { font-size: 2rem; }
       .section-title { font-size: 2rem; }
-      .menu-item {
+      .menu-card {
         flex-direction: column;
         align-items: flex-start;
       }
-      .item-icon {
+      .card-icon {
         margin-bottom: 0.5rem;
       }
-      .item-price {
+      .card-price {
         margin-left: 0;
         margin-top: 0.5rem;
       }
@@ -353,7 +350,6 @@
       <a href="#pedidos" class="btn">Haz tu pedido</a>
     </div>
     <div class="hero-image">
-      <!-- Imagen de plato usando picsum.photos (siempre funciona) -->
       <img src="https://picsum.photos/800/600?random=2" alt="Plato del restaurante">
     </div>
   </section>
@@ -362,149 +358,104 @@
   <section class="section" id="menu">
     <h2 class="section-title">Nuestro Menú</h2>
 
-    <!-- Entradas -->
-    <div class="menu-category">
-      <div class="category-header">
-        <div class="category-icon">
-          <img src="https://via.placeholder.com/30/000000?text=🥗" alt="Entradas">
-        </div>
-        <h3 class="category-title">Entradas</h3>
-      </div>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/4CAF50/FFFFFF?text=🥗" alt="Ensalada">
-          </div>
-          <div class="item-info">
-            <div class="item-name">Ensalada Griega</div>
-          </div>
-          <div class="item-price">$12</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/FF9800/FFFFFF?text=🥙" alt="Hummus">
-          </div>
-          <div class="item-info">
-            <div class="item-name">Hummus con Pan Pita</div>
-          </div>
-          <div class="item-price">$10</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/2196F3/FFFFFF?text=🦑" alt="Calamares">
-          </div>
-          <div class="item-info">
-            <div class="item-name">Calamares a la Romana</div>
-          </div>
-          <div class="item-price">$14</div>
-        </div>
-      </div>
-    </div>
-
     <!-- Platos Fuertes -->
-    <div class="menu-category">
+    <div class="category">
       <div class="category-header">
-        <div class="category-icon">
-          <img src="https://via.placeholder.com/30/000000?text=🍲" alt="Fuertes">
-        </div>
+        <div class="category-icon">Fuer</div>
         <h3 class="category-title">Platos Fuertes</h3>
       </div>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/FF5722/FFFFFF?text=🥘" alt="Paella">
+      <div class="menu-cards">
+        <div class="menu-card">
+          <div class="card-icon">
+            <img src="https://picsum.photos/80/80?random=3" alt="Paella">
           </div>
-          <div class="item-info">
-            <div class="item-name">Paella Valenciana</div>
+          <div class="card-info">
+            <div class="card-name">Paella Valenciana</div>
           </div>
-          <div class="item-price">$24</div>
+          <div class="card-price">$24</div>
         </div>
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/607D8B/FFFFFF?text=🐟" alt="Bacalao">
+        <div class="menu-card">
+          <div class="card-icon">
+            <img src="https://picsum.photos/80/80?random=4" alt="Bacalao">
           </div>
-          <div class="item-info">
-            <div class="item-name">Bacalao al Pil Pil</div>
+          <div class="card-info">
+            <div class="card-name">Bacalao al Pil Pil</div>
           </div>
-          <div class="item-price">$26</div>
+          <div class="card-price">$26</div>
         </div>
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/795548/FFFFFF?text=🍖" alt="Cordero">
+        <div class="menu-card">
+          <div class="card-icon">
+            <img src="https://picsum.photos/80/80?random=5" alt="Cordero">
           </div>
-          <div class="item-info">
-            <div class="item-name">Cordero al Romero</div>
+          <div class="card-info">
+            <div class="card-name">Cordero al Romero</div>
           </div>
-          <div class="item-price">$28</div>
+          <div class="card-price">$28</div>
         </div>
       </div>
     </div>
 
     <!-- Postres -->
-    <div class="menu-category">
+    <div class="category">
       <div class="category-header">
-        <div class="category-icon">
-          <img src="https://via.placeholder.com/30/000000?text=🍰" alt="Postres">
-        </div>
+        <div class="category-icon">Post</div>
         <h3 class="category-title">Postres</h3>
       </div>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/E91E63/FFFFFF?text=🍋" alt="Limon">
+      <div class="menu-cards">
+        <div class="menu-card">
+          <div class="card-icon">
+            <img src="https://picsum.photos/80/80?random=6" alt="Tarta">
           </div>
-          <div class="item-info">
-            <div class="item-name">Tarta de Limón</div>
+          <div class="card-info">
+            <div class="card-name">Tarta de Limón</div>
           </div>
-          <div class="item-price">$8</div>
+          <div class="card-price">$8</div>
         </div>
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/FFC107/000000?text=🍮" alt="Crema">
+        <div class="menu-card">
+          <div class="card-icon">
+            <img src="https://picsum.photos/80/80?random=7" alt="Crema">
           </div>
-          <div class="item-info">
-            <div class="item-name">Crema Catalana</div>
+          <div class="card-info">
+            <div class="card-name">Crema Catalana</div>
           </div>
-          <div class="item-price">$9</div>
+          <div class="card-price">$9</div>
         </div>
       </div>
     </div>
 
     <!-- Bebidas -->
-    <div class="menu-category">
+    <div class="category">
       <div class="category-header">
-        <div class="category-icon">
-          <img src="https://via.placeholder.com/30/000000?text=🍷" alt="Bebidas">
-        </div>
+        <div class="category-icon">Bebi</div>
         <h3 class="category-title">Bebidas</h3>
       </div>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/00BCD4/FFFFFF?text=🍷" alt="Vino">
+      <div class="menu-cards">
+        <div class="menu-card">
+          <div class="card-icon">
+            <img src="https://picsum.photos/80/80?random=8" alt="Vino">
           </div>
-          <div class="item-info">
-            <div class="item-name">Vino de la Casa (copa)</div>
+          <div class="card-info">
+            <div class="card-name">Vino de la Casa (copa)</div>
           </div>
-          <div class="item-price">$7</div>
+          <div class="card-price">$7</div>
         </div>
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/4CAF50/FFFFFF?text=🧃" alt="Jugo">
+        <div class="menu-card">
+          <div class="card-icon">
+            <img src="https://picsum.photos/80/80?random=9" alt="Jugo">
           </div>
-          <div class="item-info">
-            <div class="item-name">Jugo Natural (naranja/manzana)</div>
+          <div class="card-info">
+            <div class="card-name">Jugo Natural (naranja/manzana)</div>
           </div>
-          <div class="item-price">$5</div>
+          <div class="card-price">$5</div>
         </div>
-        <div class="menu-item">
-          <div class="item-icon">
-            <img src="https://via.placeholder.com/40/212121/FFFFFF?text=💧" alt="Agua">
+        <div class="menu-card">
+          <div class="card-icon">
+            <img src="https://picsum.photos/80/80?random=10" alt="Agua">
           </div>
-          <div class="item-info">
-            <div class="item-name">Agua Mineral</div>
+          <div class="card-info">
+            <div class="card-name">Agua Mineral</div>
           </div>
-          <div class="item-price">$3</div>
+          <div class="card-price">$3</div>
         </div>
       </div>
     </div>
