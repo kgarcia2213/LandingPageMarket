@@ -26,38 +26,6 @@
       padding: 2rem;
     }
 
-    /* Header */
-    .header {
-      background: white;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #000;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-menu a {
-      color: #555;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-menu a:hover {
-      color: #007bff;
-    }
-
     /* Hero */
     .hero {
       background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
@@ -95,7 +63,7 @@
       transform: translateY(-2px);
     }
 
-    /* Sidebar & Main Content */
+    /* Shop Layout */
     .shop-layout {
       display: grid;
       grid-template-columns: 1fr 3fr;
@@ -245,14 +213,6 @@
     }
 
     @media (max-width: 480px) {
-      .header {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
       .product-card {
         margin-bottom: 1rem;
       }
@@ -260,16 +220,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="header">
-    <div class="logo">TiendaVirtual</div>
-    <nav class="nav-menu">
-      <a href="#inicio">Inicio</a>
-      <a href="#productos">Productos</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
 
   <!-- Hero -->
   <section class="hero">
@@ -306,13 +256,13 @@
 
       <div class="filter-category">
         <h4>Precio</h4>
-        <input type="range" min="0" max="1000" value="500" class="price-range">
+        <input type="range" min="0" max="1000" value="500" class="price-range" disabled>
         <p>Rango: $0 - $1000</p>
       </div>
     </aside>
 
     <!-- Products -->
-    <main class="products-grid">
+    <main class="products-grid" id="productos">
       <!-- Producto 1 -->
       <div class="product-card">
         <div class="product-image">
