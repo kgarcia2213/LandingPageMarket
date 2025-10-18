@@ -30,16 +30,13 @@
       letter-spacing: -0.5px;
     }
 
-    /* Header */
+    /* Header simplificado */
     .header {
       background: #000;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
@@ -68,22 +65,6 @@
       letter-spacing: 1px;
       color: white;
       text-transform: uppercase;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-menu a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    .nav-menu a:hover {
-      color: #ffc107;
     }
 
     .contact-info {
@@ -379,9 +360,6 @@
       }
       .hero-text h1 { font-size: 2.5rem; }
       .hero-image { height: 250px; }
-      .nav-menu {
-        display: none;
-      }
       .header {
         flex-wrap: wrap;
         gap: 1rem;
@@ -413,18 +391,12 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header simplificado (sin menú de navegación) -->
   <header class="header">
     <div class="header-left">
       <div class="location">2900 Lapeer Rd, Port Hurons, MI 49070</div>
       <div class="logo">SABOR MEDITERRÁNEO</div>
     </div>
-    <nav class="nav-menu">
-      <a href="#menu">Menú</a>
-      <a href="#horarios">Horarios</a>
-      <a href="#pedidos">Pedidos</a>
-      <a href="#ubicacion">Ubicación</a>
-    </nav>
     <div class="contact-info">
       Call Now: 8004784251
     </div>
