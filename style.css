@@ -1,0 +1,167 @@
+/* ===========================
+   Reset básico
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===========================
+   Estilos generales
+=========================== */
+body {
+    background-color: #121212;
+    color: #f1f1f1;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===========================
+   Header / Hero
+=========================== */
+.header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(90deg, #1e1e1e, #333333);
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #00e5ff;
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.header .btn {
+    padding: 12px 25px;
+    background-color: #00e5ff;
+    color: #121212;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.header .btn:hover {
+    background-color: #00bcd4;
+    color: #fff;
+}
+
+/* ===========================
+   Catálogo
+=========================== */
+.catalogo {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.catalogo h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #00e5ff;
+}
+
+/* Grid de tarjetas */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjetas */
+.card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin: 15px 20px 10px;
+    color: #00e5ff;
+}
+
+.card p {
+    margin: 0 20px 15px;
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0 20px;
+}
+
+.btn-demo, .btn-solicitar {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-demo {
+    background-color: #444444;
+    color: #00e5ff;
+}
+
+.btn-demo:hover {
+    background-color: #00bcd4;
+    color: #fff;
+}
+
+.btn-solicitar {
+    background-color: #00e5ff;
+    color: #121212;
+}
+
+.btn-solicitar:hover {
+    background-color: #00bcd4;
+    color: #fff;
+}
+
+/* ===========================
+   Footer
+=========================== */
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #1a1a1a;
+    color: #aaa;
+    margin-top: 50px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.2rem;
+    }
+
+    .catalogo h2 {
+        font-size: 2rem;
+    }
+}
