@@ -14,11 +14,12 @@
     }
 
     :root {
-      --color-primary: #1a3a5f;      /* Azul marino */
-      --color-secondary: #c67943;    /* Terracota cálido */
-      --color-accent: #8a9b68;       /* Verde oliva */
-      --color-light: #f8f5f0;        /* Beige suave */
+      --color-primary: #1a3a5f;
+      --color-secondary: #c67943;
+      --color-accent: #8a9b68;
+      --color-light: #f8f5f0;
       --color-dark: #2c2c2c;
+      --color-yellow: #ffc107;
     }
 
     body {
@@ -106,47 +107,122 @@
       border-radius: 2px;
     }
 
-    /* Menú */
+    /* Menú estilo imagen */
+    .menu-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .menu-category {
-      background: var(--color-light);
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      transition: transform 0.3s;
-    }
-
-    .menu-category:hover {
-      transform: translateY(-8px);
-    }
-
-    .menu-category h3 {
-      color: var(--color-secondary);
-      margin-bottom: 1.2rem;
-      font-size: 1.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
 
     .menu-item {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 1px dashed #d5cfc2;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
     }
 
-    .menu-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
+    .menu-item:hover {
+      transform: translateX(6px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .price {
+    .item-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      overflow: hidden;
+    }
+
+    .item-icon img {
+      width: 80%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-name {
       font-weight: 600;
+      font-size: 1.1rem;
       color: var(--color-primary);
+    }
+
+    .item-price {
+      background: var(--color-yellow);
+      color: #333;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+    }
+
+    /* Destacado del día */
+    .featured-dish {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .dish-image {
+      width: 300px;
+      height: 250px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .dish-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .dish-info {
+      flex: 1;
+    }
+
+    .dish-title {
+      font-size: 1.6rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .dish-desc {
+      color: #666;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .dish-btn {
+      background: var(--color-secondary);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
     }
 
     /* Horarios */
@@ -251,6 +327,16 @@
       .hero h1 { font-size: 2.8rem; }
       .hero p { font-size: 1.1rem; }
       .section { padding: 3rem 1.5rem; }
+      .menu-container {
+        grid-template-columns: 1fr;
+      }
+      .featured-dish {
+        flex-direction: column;
+      }
+      .dish-image {
+        width: 100%;
+        height: 200px;
+      }
       .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -261,6 +347,13 @@
     @media (max-width: 480px) {
       .hero h1 { font-size: 2.2rem; }
       .section-title { font-size: 2rem; }
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .item-icon {
+        margin-bottom: 0.5rem;
+      }
     }
   </style>
 </head>
@@ -276,55 +369,85 @@
   <!-- Menú -->
   <section class="section" id="menu">
     <div class="container">
-      <h2 class="section-title">Nuestro Menú</h2>
-      <div class="menu-grid">
-        <div class="menu-category">
-          <h3>Entradas</h3>
+      <h2 class="section-title">Nuestro Menú Diario</h2>
+      <div class="menu-container">
+
+        <!-- Menú Grid -->
+        <div class="menu-grid">
+          <!-- Entradas -->
           <div class="menu-item">
-            <span>Ensalada Griega</span>
-            <span class="price">$12</span>
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/FFD700/000000?text=🥩" alt="Carne">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Carne a la Parrilla</div>
+            </div>
+            <div class="item-price">$18</div>
           </div>
+
           <div class="menu-item">
-            <span>Hummus con Pan Pita</span>
-            <span class="price">$10</span>
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/4CAF50/FFFFFF?text=🐟" alt="Pescado">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Trucha Fresca</div>
+            </div>
+            <div class="item-price">$16</div>
           </div>
+
           <div class="menu-item">
-            <span>Calamares a la Romana</span>
-            <span class="price">$14</span>
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/FF9800/FFFFFF?text=🍄" alt="Setas">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Sopa de Setas</div>
+            </div>
+            <div class="item-price">$10</div>
+          </div>
+
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/2196F3/FFFFFF?text=🍗" alt="Pollo">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Pollo con Patatas</div>
+            </div>
+            <div class="item-price">$14</div>
+          </div>
+
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/E91E63/FFFFFF?text=🍝" alt="Pasta">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Pasta con Puré de Tomate</div>
+            </div>
+            <div class="item-price">$12</div>
+          </div>
+
+          <div class="menu-item">
+            <div class="item-icon">
+              <img src="https://via.placeholder.com/40/8BC34A/FFFFFF?text=🥗" alt="Ensalada">
+            </div>
+            <div class="item-info">
+              <div class="item-name">Ensalada con Remolacha</div>
+            </div>
+            <div class="item-price">$9</div>
           </div>
         </div>
 
-        <div class="menu-category">
-          <h3>Platos Fuertes</h3>
-          <div class="menu-item">
-            <span>Paella Valenciana</span>
-            <span class="price">$24</span>
+        <!-- Plato Destacado -->
+        <div class="featured-dish">
+          <div class="dish-image">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spaghetti">
           </div>
-          <div class="menu-item">
-            <span>Bacalao al Pil Pil</span>
-            <span class="price">$26</span>
-          </div>
-          <div class="menu-item">
-            <span>Cordero al Romero</span>
-            <span class="price">$28</span>
+          <div class="dish-info">
+            <h3 class="dish-title">Espaguetis con Tomates Frescos y Salsa</h3>
+            <p class="dish-desc">Una receta clásica de la cocina italiana, preparada con tomates maduros, albahaca fresca y aceite de oliva virgen extra.</p>
+            <a href="#reservas" class="dish-btn">Pedir ahora</a>
           </div>
         </div>
 
-        <div class="menu-category">
-          <h3>Postres & Bebidas</h3>
-          <div class="menu-item">
-            <span>Tarta de Limón</span>
-            <span class="price">$8</span>
-          </div>
-          <div class="menu-item">
-            <span>Crema Catalana</span>
-            <span class="price">$9</span>
-          </div>
-          <div class="menu-item">
-            <span>Vino de la Casa (copa)</span>
-            <span class="price">$7</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
