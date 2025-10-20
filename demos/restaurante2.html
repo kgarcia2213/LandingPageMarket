@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Carta de Menú | Restaurante</title>
-  <meta name="description" content="Descubre nuestra carta completa: aperitivos, platos principales, postres y bebidas. ¡Reserva tu mesa hoy!">
+  <meta name="description" content="Descubre nuestra carta completa: aperitivos, platos principales, postres y bebidas. ¡Haz tu pedido por WhatsApp!">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -161,6 +161,33 @@
       margin-left: 0.5rem;
     }
 
+    /* Botón flotante de pedido */
+    .order-button {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff6b6b;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .order-button:hover {
+      background: #ff5252;
+      transform: translateX(-50%) scale(1.05);
+      box-shadow: 0 8px 24px rgba(255, 107, 107, 0.6);
+    }
+
     /* Footer */
     footer {
       background: #000;
@@ -192,6 +219,10 @@
         width: 60px;
         height: 60px;
       }
+      .order-button {
+        padding: 12px 24px;
+        font-size: 1.1rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -199,6 +230,10 @@
       .section-title { font-size: 1.4rem; }
       .item-name { font-size: 1rem; }
       .item-desc { font-size: 0.8rem; }
+      .order-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -398,6 +433,11 @@
     </section>
 
   </div>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/34612345678" target="_blank" class="order-button">
+    📱 Haz tu pedido
+  </a>
 
   <!-- Footer -->
   <footer>
