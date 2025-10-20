@@ -201,48 +201,41 @@
       margin-top: 3rem;
     }
 
-    /* Botón flotante de WhatsApp */
+    /* Botón flotante de WhatsApp mejorado */
     .whatsapp-button {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 30px;
+      right: 30px;
       background: #25D366;
       color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+      padding: 14px 20px;
+      border-radius: 50px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      z-index: 1000;
+      gap: 10px;
       transition: all 0.3s ease;
-      text-decoration: none;
-      font-size: 2rem;
+      animation: pulse 2s infinite;
     }
 
     .whatsapp-button:hover {
-      transform: scale(1.1) rotate(10deg);
       background: #128C7E;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.8);
     }
 
-    .whatsapp-tooltip {
-      position: absolute;
-      bottom: 70px;
-      right: 0;
-      background: #333;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.9rem;
+    .whatsapp-button .whatsapp-text {
       white-space: nowrap;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
     }
 
-    .whatsapp-button:hover .whatsapp-tooltip {
-      opacity: 1;
+    @keyframes pulse {
+      0% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+      50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.9); }
+      100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
     }
 
     /* Responsive */
@@ -253,6 +246,12 @@
       .hero h1 { font-size: 2rem; }
       .products-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      .whatsapp-button {
+        bottom: 20px;
+        right: 20px;
+        padding: 16px 22px;
+        font-size: 1.1rem;
       }
     }
 
@@ -418,7 +417,7 @@
   <!-- Botón flotante de WhatsApp -->
   <a href="https://wa.me/34612345678" target="_blank" class="whatsapp-button">
     <span>💬</span>
-    <span class="whatsapp-tooltip">¿Tienes dudas? ¿Quieres comprar? Escríbenos</span>
+    <span class="whatsapp-text">Haz tu pedido o consulta</span>
   </a>
 
   <!-- Footer -->
