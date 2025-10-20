@@ -123,16 +123,20 @@
       margin: 0 auto 2rem;
     }
 
-    .highlight .btn {
+    /* Botón ajustado para Highlight */
+    .highlight .highlight-btn {
       background: #000;
       color: #00ff7f;
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
       width: auto;
       padding: 10px 24px;
       font-size: 1rem;
+      display: block;
+      margin: 0 auto;
+      width: fit-content;
     }
 
-    .highlight .btn:hover {
+    .highlight .highlight-btn:hover {
       background: #111;
       box-shadow: 0 6px 16px rgba(0,0,0,0.6);
     }
@@ -207,6 +211,12 @@
       display: block;
       margin: 0 auto;
       width: fit-content;
+    }
+
+    .audience-card .btn:hover {
+      background: #00e676;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 255, 127, 0.6);
     }
 
     /* CTA final */
@@ -300,7 +310,7 @@
   <section class="highlight">
     <h2>Descubre cómo transformé mi computadora en una máquina de ventas que me generó más de $5 millones en línea</h2>
     <p>Todo el proceso paso a paso: desde cómo empezar hasta cómo escalar.</p>
-    <a href="https://wa.me/34612345678" target="_blank" class="btn">📱 Contáctame por WhatsApp</a>
+    <a href="https://wa.me/34612345678" target="_blank" class="btn highlight-btn">📱 Contáctame por WhatsApp</a>
   </section>
 
   <!-- Para quién es -->
