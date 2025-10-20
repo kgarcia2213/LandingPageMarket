@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marketing Digital | Aumenta tus ventas</title>
+  <meta name="description" content="Aprende a vender en línea con mi tutoría de marketing digital. Transforma tu computador en una máquina de ventas.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0f0f0f;
+      color: white;
+      line-height: 1.6;
+      background-image: 
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+        url('https://images.unsplash.com/photo-1555396273-36794f1a4a25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 6rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #00ff7f;
+      color: #000;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 255, 127, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      background: #00e676;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 255, 127, 0.6);
+    }
+
+    .hero-image {
+      flex: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      height: 400px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Sección destacada */
+    .highlight {
+      background: linear-gradient(135deg, #00ff7f, #00cc66);
+      color: #000;
+      text-align: center;
+      padding: 4rem 2rem;
+      margin: 4rem 0;
+      border-radius: 12px;
+    }
+
+    .highlight h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .highlight .btn {
+      background: #000;
+      color: #00ff7f;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .highlight .btn:hover {
+      background: #111;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    }
+
+    /* Para quién es */
+    .audience {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .audience-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .audience-title::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #00ff7f;
+      margin: 12px auto;
+      border-radius: 2px;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .audience-card {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .audience-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .audience-icon {
+      font-size: 2.5rem;
+      color: #00ff7f;
+      margin-bottom: 1rem;
+    }
+
+    .audience-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .audience-card p {
+      color: #aaa;
+      margin-bottom: 1.5rem;
+    }
+
+    /* CTA final */
+    .cta-final {
+      background: #00ff7f;
+      color: #000;
+      text-align: center;
+      padding: 4rem 2rem;
+      margin: 4rem 0;
+      border-radius: 12px;
+    }
+
+    .cta-final h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-final p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-final .btn {
+      background: #000;
+      color: #00ff7f;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .cta-final .btn:hover {
+      background: #111;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text h1 { font-size: 2.5rem; }
+      .hero-image { height: 250px; }
+      .audience-title { font-size: 2rem; }
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-final h2 { font-size: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 { font-size: 2rem; }
+      .audience-card h3 { font-size: 1.3rem; }
+      .cta-final h2 { font-size: 1.8rem; }
+      .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Aumente sus ventas y atinja sus objetivos con el Marketing Digital</h1>
+      <p>Curso Online con todo lo que usted precisa saber sobre Marketing Digital y Ventas Online para avanzar su Negocio.</p>
+      <a href="https://wa.me/34612345678" target="_blank" class="btn">📱 Contáctame por WhatsApp</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://picsum.photos/800/600?random=1" alt="Instructor de marketing digital">
+    </div>
+  </section>
+
+  <!-- Highlight -->
+  <section class="highlight">
+    <h2>Descubra como transformei meu computador em uma máquina de vendas que ME GEROU + R$5 MILHÕES ONLINE</h2>
+    <p>Todo el proceso paso a paso: desde cómo empezar hasta cómo escalar.</p>
+    <a href="https://wa.me/34612345678" target="_blank" class="btn">📱 Contáctame por WhatsApp</a>
+  </section>
+
+  <!-- Para quién es -->
+  <section class="audience">
+    <h2 class="audience-title">Para quem é este curso?</h2>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-icon">🚀</div>
+        <h3>Empresários que precisam começar ou melhorar seus resultados no digital</h3>
+        <p>Si tienes un negocio pero no sabes cómo vender en línea, este curso es tu puente hacia el éxito digital.</p>
+        <a href="https://wa.me/34612345678" target="_blank" class="btn">📱 Contáctame por WhatsApp</a>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">👨‍💻</div>
+        <h3>Pessoas que querem aprender uma nova profissão no mercado que mais cresce no mundo</h3>
+        <p>Conviértete en un experto en marketing digital y trabaja desde cualquier lugar del mundo.</p>
+        <a href="https://wa.me/34612345678" target="_blank" class="btn">📱 Contáctame por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-final">
+    <h2>Se você procura MAIS VENDAS, MAIS CLIENTES e MAIS LIBERDADE FINANCEIRA, esse curso é para você!</h2>
+    <p>Únete a cientos de alumnos que ya están generando ingresos online.</p>
+    <a href="https://wa.me/34612345678" target="_blank" class="btn">📱 Contáctame por WhatsApp</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Tu Nombre. Todos los derechos reservados.</p>
+    <p>Marketing Digital • Mentoría • Resultados reales</p>
+  </footer>
+
+</body>
+</html>
