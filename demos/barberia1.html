@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Divi Barber | Fresh Since 2000</title>
+  <meta name="description" content="Barbería premium en el centro. Cortes clásicos y modernos desde $20. Reserva tu silla hoy.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: white;
+      line-height: 1.6;
+      background-image: 
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+        url('https://images.unsplash.com/photo-1555396273-36794f1a4a25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header */
+    .header {
+      background: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      color: #aaa;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-menu a:hover {
+      color: #ffcc00;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 6rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ffcc00;
+      color: #000;
+      padding: 12px 28px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
+    }
+
+    .btn:hover {
+      background: #e6b800;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(255, 204, 0, 0.6);
+    }
+
+    .hero-image {
+      flex: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      height: 400px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Services */
+    .services {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #ffcc00;
+      margin: 12px auto;
+      border-radius: 2px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .service-name {
+      font-size: 1.5rem;
+      color: #ffcc00;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-price {
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .service-desc {
+      color: #aaa;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 5rem 2rem;
+      background: rgba(0,0,0,0.5);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .testimonial-quote {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.9rem;
+      color: #ffcc00;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: white;
+      padding: 3rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer-left h3 {
+      color: #ffcc00;
+      margin-bottom: 1rem;
+    }
+
+    .footer-menu {
+      list-style: none;
+    }
+
+    .footer-menu li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-menu a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: block;
+      padding: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .footer-menu a:hover {
+      color: #ffcc00;
+    }
+
+    .footer-right {
+      text-align: center;
+    }
+
+    .footer-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+    }
+
+    .footer-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .footer-text {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text h1 { font-size: 2.5rem; }
+      .hero-image { height: 250px; }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer-image {
+        margin: 0 auto 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 { font-size: 2rem; }
+      .section-title { font-size: 2rem; }
+      .service-name { font-size: 1.3rem; }
+      .service-price { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Divi Barber</div>
+    <nav class="nav-menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <p>FRESH SINCE 2000</p>
+      <h1>DIVI BARBER</h1>
+      <p>Donde el estilo se encuentra con la tradición.</p>
+      <a href="#reserva" class="btn">BOOK A CHAIR</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://picsum.photos/800/600?random=1" alt="Barbero cortando pelo">
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="servicios">
+    <h2 class="section-title">SERVICES</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-name">HAIRCUT</div>
+        <div class="service-price">$39</div>
+        <div class="service-desc">Corte clásico con tijera y peine. Ideal para quien busca un look limpio y profesional.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-name">STYLED HAIRCUT</div>
+        <div class="service-price">$45</div>
+        <div class="service-desc">Corte con diseño personalizado. Para quienes quieren destacar su estilo único.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-name">BUZZ CUT</div>
+        <div class="service-price">$24</div>
+        <div class="service-desc">Corte rápido y práctico. Perfecto para deportistas o quienes prefieren bajo mantenimiento.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-name">LONG SHEER CUT</div>
+        <div class="service-price">$85</div>
+        <div class="service-desc">Corte largo con capas y textura. Para cabellos largos que necesitan forma y movimiento.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-name">KIDS CUT</div>
+        <div class="service-price">$20</div>
+        <div class="service-desc">Cortes especiales para niños. Ambiente divertido y seguro.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-name">STRAIGHT RAZOR</div>
+        <div class="service-price">$75</div>
+        <div class="service-desc">Afeitado con navaja recta. Experiencia de lujo para piel sensible.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-name">BEARD TRIM</div>
+        <div class="service-price">$29</div>
+        <div class="service-desc">Recorte y definición de barba. Deja tu barba impecable.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-name">CLIPPER HAIRCUT</div>
+        <div class="service-price">$50</div>
+        <div class="service-desc">Corte con máquina. Rápido, preciso y moderno.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-name">CLEAN SHAVE</div>
+        <div class="service-price">$45</div>
+        <div class="service-desc">Afeitado completo con crema y cuchilla. Suavidad extrema.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-name">SUNDAY SERVICE</div>
+        <div class="service-price">$100</div>
+        <div class="service-desc">Paquete completo: corte, afeitado, masaje facial y más. El lujo del fin de semana.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonios">
+    <h2 class="section-title">TESTIMONIALS</h2>
+    <div class="testimonial-card">
+      <p class="testimonial-quote">“¡Increíble experiencia! Me hicieron un corte que me cambió la vida. El ambiente es relajado y los barberos son profesionales de verdad.”</p>
+      <p class="testimonial-author">— Alex Fernández</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="footer-content">
+      <div class="footer-left">
+        <h3>DIVI</h3>
+        <ul class="footer-menu">
+          <li><a href="#inicio">Services & Pricing</a></li>
+          <li><a href="#barberos">Barbers</a></li>
+          <li><a href="#nosotros">About Us</a></li>
+          <li><a href="#reserva">Booking</a></li>
+          <li><a href="#equipo">Join Our Team</a></li>
+          <li><a href="#contacto">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <div class="footer-image">
+          <img src="https://picsum.photos/200/200?random=2" alt="Barbero">
+        </div>
+        <p class="footer-text">Visítanos en el centro. Abierto de lunes a domingo.</p>
+        <p class="footer-text">📍 Calle del Corte, 123 • Ciudad, España</p>
+        <p class="footer-text">📞 +34 912 345 678</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
