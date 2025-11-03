@@ -241,18 +241,19 @@
       font-weight: 700;
     }
 
-    /* Why Choose Us */
+    /* Why Choose Us (como en la imagen) */
     .why-choose {
       padding: 5rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
+      background: #FFF;
     }
 
     .why-choose-title {
       text-align: center;
       font-size: 2.5rem;
       color: #333;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
       position: relative;
     }
 
@@ -266,49 +267,85 @@
       border-radius: 2px;
     }
 
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+    .why-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 2rem 0;
     }
 
-    .why-card {
+    .why-dog {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    .why-dog img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .why-circles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      place-items: center;
+      pointer-events: none;
+    }
+
+    .why-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
       background: #FFF;
-      padding: 2rem;
-      border-radius: 12px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 1rem;
+      pointer-events: auto;
       transition: transform 0.3s;
     }
 
-    .why-card:hover {
-      transform: translateY(-8px);
+    .why-circle:hover {
+      transform: scale(1.05);
       box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     }
 
     .why-icon {
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: #FFF8E1;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 1.5rem;
+      margin: 0 auto 0.5rem;
+      font-size: 1.2rem;
       color: #FF6B6B;
     }
 
     .why-title {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       color: #333;
       margin-bottom: 0.5rem;
+      font-weight: 600;
     }
 
     .why-desc {
       color: #777;
-      font-size: 0.9rem;
-      line-height: 1.5;
+      font-size: 0.8rem;
+      line-height: 1.4;
     }
 
     /* Footer */
@@ -363,8 +400,27 @@
         grid-template-columns: 1fr;
       }
       .about-image { height: 250px; }
-      .why-grid {
+      .why-choose-title { font-size: 2rem; }
+      .why-container {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .why-dog {
+        width: 150px;
+        height: 150px;
+      }
+      .why-circles {
+        position: static;
+        display: grid;
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1rem;
+      }
+      .why-circle {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        padding: 1rem;
       }
       .footer-content {
         grid-template-columns: 1fr;
@@ -381,7 +437,8 @@
       .service-name { font-size: 1.3rem; }
       .service-desc { font-size: 0.9rem; }
       .about-text h2 { font-size: 2rem; }
-      .why-title { font-size: 1.3rem; }
+      .why-choose-title { font-size: 1.8rem; }
+      .why-title { font-size: 1rem; }
     }
   </style>
 </head>
@@ -463,36 +520,41 @@
     </div>
   </section>
 
-  <!-- Why Choose Us -->
+  <!-- Why Choose Us (como en la imagen) -->
   <section class="why-choose" id="porque">
     <h2 class="why-choose-title">Why Choose Us?<br>Your Pets Will Be Extremely Happy With Us</h2>
-    <div class="why-grid">
-      <!-- Razón 1 -->
-      <div class="why-card">
-        <div class="why-icon">👨‍⚕️</div>
-        <h3 class="why-title">Experienced Professionals</h3>
-        <p class="why-desc">Nuestro equipo está formado por veterinarios y técnicos altamente capacitados y apasionados por los animales.</p>
+    <div class="why-container">
+      <div class="why-dog">
+        <img src="https://picsum.photos/200/200?random=4" alt="Perro sonriente">
       </div>
+      <div class="why-circles">
+        <!-- Círculo 1: Experienced Professionals -->
+        <div class="why-circle">
+          <div class="why-icon">👨‍⚕️</div>
+          <h3 class="why-title">Experienced Professionals</h3>
+          <p class="why-desc">Nuestro equipo está formado por veterinarios y técnicos altamente capacitados y apasionados por los animales.</p>
+        </div>
 
-      <!-- Razón 2 -->
-      <div class="why-card">
-        <div class="why-icon">📋</div>
-        <h3 class="why-title">Comprehensive Services</h3>
-        <p class="why-desc">Ofrecemos todo lo que tu mascota necesita: desde vacunas hasta cirugías, pasando por peluquería y nutrición.</p>
-      </div>
+        <!-- Círculo 2: Comprehensive Services -->
+        <div class="why-circle">
+          <div class="why-icon">📋</div>
+          <h3 class="why-title">Comprehensive Services</h3>
+          <p class="why-desc">Ofrecemos todo lo que tu mascota necesita: desde vacunas hasta cirugías, pasando por peluquería y nutrición.</p>
+        </div>
 
-      <!-- Razón 3 -->
-      <div class="why-card">
-        <div class="why-icon">🏡</div>
-        <h3 class="why-title">Loving Environment</h3>
-        <p class="why-desc">Nuestra clínica está diseñada para que tu mascota se sienta cómoda, segura y feliz durante su visita.</p>
-      </div>
+        <!-- Círculo 3: Loving Environment -->
+        <div class="why-circle">
+          <div class="why-icon">🏡</div>
+          <h3 class="why-title">Loving Environment</h3>
+          <p class="why-desc">Nuestra clínica está diseñada para que tu mascota se sienta cómoda, segura y feliz durante su visita.</p>
+        </div>
 
-      <!-- Razón 4 -->
-      <div class="why-card">
-        <div class="why-icon">⭐</div>
-        <h3 class="why-title">Customer Satisfaction</h3>
-        <p class="why-desc">Nuestra prioridad es tu satisfacción. ¡Tu opinión nos importa!</p>
+        <!-- Círculo 4: Customer Satisfaction -->
+        <div class="why-circle">
+          <div class="why-icon">⭐</div>
+          <h3 class="why-title">Customer Satisfaction</h3>
+          <p class="why-desc">Nuestra prioridad es tu satisfacción. ¡Tu opinión nos importa!</p>
+        </div>
       </div>
     </div>
   </section>
