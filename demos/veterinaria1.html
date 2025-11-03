@@ -241,7 +241,7 @@
       font-weight: 700;
     }
 
-    /* Why Choose Us (como en la imagen) */
+    /* Why Choose Us (arreglado) */
     .why-choose {
       padding: 5rem 2rem;
       max-width: 1200px;
@@ -290,7 +290,7 @@
       object-fit: cover;
     }
 
-    .why-circles {
+    .why-items {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -332,6 +332,7 @@
       border-radius: 8px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       text-align: left;
+      max-width: 250px;
     }
 
     .why-title {
@@ -347,29 +348,25 @@
       line-height: 1.4;
     }
 
-    /* Posiciones de los íconos y leyendas */
+    /* Posiciones de los íconos y leyendas (ajustadas para estar más cerca del perro) */
     .top-left {
-      top: 0;
-      left: 0;
-      transform: translate(-100%, -100%);
+      top: -100px;
+      left: -100px;
     }
 
     .top-right {
-      top: 0;
-      right: 0;
-      transform: translate(100%, -100%);
+      top: -100px;
+      right: -100px;
     }
 
     .bottom-left {
-      bottom: 0;
-      left: 0;
-      transform: translate(-100%, 100%);
+      bottom: -100px;
+      left: -100px;
     }
 
     .bottom-right {
-      bottom: 0;
-      right: 0;
-      transform: translate(100%, 100%);
+      bottom: -100px;
+      right: -100px;
     }
 
     /* Footer */
@@ -433,7 +430,7 @@
         width: 150px;
         height: 150px;
       }
-      .why-circles {
+      .why-items {
         position: static;
         display: grid;
         grid-template-columns: 1fr;
@@ -550,14 +547,14 @@
     </div>
   </section>
 
-  <!-- Why Choose Us (como en la imagen) -->
+  <!-- Why Choose Us (arreglado) -->
   <section class="why-choose" id="porque">
     <h2 class="why-choose-title">Why Choose Us?<br>Your Pets Will Be Extremely Happy With Us</h2>
     <div class="why-container">
       <div class="why-dog">
         <img src="https://picsum.photos/200/200?random=4" alt="Perro sonriente">
       </div>
-      <div class="why-circles">
+      <div class="why-items">
         <!-- Círculo 1: Experienced Professionals -->
         <div class="why-item top-left">
           <div class="why-icon">👨‍⚕️</div>
