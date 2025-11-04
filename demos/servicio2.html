@@ -24,19 +24,20 @@
       padding: 0 20px;
     }
 
-    /* Hero Section - Texto e imagen más juntos */
+    /* Hero Section - Texto e imagen centrados */
     .hero {
       background-color: #001f3f; /* Azul marino profundo */
       color: white;
       padding: 80px 20px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 40px; /* Ajustado para acercar texto e imagen */
+      justify-content: center; /* Centrado horizontal */
+      gap: 40px;
     }
 
     .hero-content {
-      max-width: 500px; /* Ancho reducido para evitar espacio vacío */
+      max-width: 500px;
+      text-align: left; /* Texto alineado a la izquierda dentro del bloque */
     }
 
     .hero h1 {
@@ -72,7 +73,7 @@
     }
 
     .hero-image {
-      width: 350px; /* Ancho reducido para acercarse al texto */
+      width: 350px;
       border-radius: 10px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       overflow: hidden;
@@ -244,7 +245,7 @@
 </head>
 <body>
 
-  <!-- Hero Section - Texto e imagen más juntos -->
+  <!-- Hero Section - Texto e imagen centrados -->
   <section class="hero">
     <div class="hero-content">
       <h1>Plumbing, Electrical, & Roofing</h1>
