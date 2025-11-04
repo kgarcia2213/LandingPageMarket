@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HandyForce - Your Trusted Handyman</title>
+  <style>
+    /* Reset y estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header y navegación */
+    header {
+      background-color: #0056b3;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav li a {
+      color: white;
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    nav li a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .book-btn {
+      background: #ff9900;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .book-btn:hover {
+      background: #e68a00;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://via.placeholder.com/1200x600/1a1a2e/ffffff?text=Roof+Background') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 80px 20px;
+      position: relative;
+      text-align: left;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      color: #ff9900;
+    }
+
+    .hero p {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: #ff9900;
+      color: white;
+      border: 2px solid #ff9900;
+    }
+
+    .btn-primary:hover {
+      background: #e68a00;
+      border-color: #e68a00;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .hero-image {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .stats-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .reviews {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.9);
+      padding: 10px 15px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .reviews img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .stars {
+      color: gold;
+      font-size: 16px;
+    }
+
+    /* Sección About Us */
+    .section {
+      padding: 80px 20px;
+    }
+
+    .section-title {
+      color: #0056b3;
+      font-size: 32px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60px;
+      height: 4px;
+      background: #ff9900;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 2;
+    }
+
+    .about-stats {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: bold;
+      color: #ff9900;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Servicios */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 20px;
+    }
+
+    .service-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #0056b3;
+    }
+
+    .service-desc {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .learn-more {
+      color: #0056b3;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .learn-more:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      color: #aaa;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <a href="#" class="logo">HANDYFORCE</a>
+      <nav>
+        <ul>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="book-btn">Book online</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Your Trusted Handyman for <span>Plumbing, Electrical, & Roofing</span> Needs</h1>
+        <p>Quality Service You Can Rely On — 24/7 Assistance.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary">Book Now →</a>
+          <a href="#" class="btn btn-secondary">Get a Free Quote</a>
+        </div>
+      </div>
+      <img src="https://via.placeholder.com/350x400/0056b3/ffffff?text=Handyman+in+Helmet" alt="Handyman" class="hero-image">
+      <div class="stats-badge">13K+ Satisfied Clients</div>
+      <div class="reviews">
+        <img src="https://via.placeholder.com/40/cccccc/ffffff?text=U1" alt="User">
+        <img src="https://via.placeholder.com/40/cccccc/ffffff?text=U2" alt="User">
+        <img src="https://via.placeholder.com/40/cccccc/ffffff?text=U3" alt="User">
+        <div>
+          <div>4.8</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">About us</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Handiforce is your one-stop solution for all handyman services, including plumbing, electrical repairs, and roofing. We pride ourselves on prompt response times, skilled workmanship, and affordable pricing, making it easy to keep your property in top shape.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Customer Satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">12k+</div>
+            <div class="stat-label">Satisfied Clients</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">Years Of Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Expert Services -->
+  <section class="section" style="background: #f8f9fa;">
+    <div class="container">
+      <h2 class="section-title">Our Expert Services</h2>
+      <p style="text-align: center; margin-bottom: 40px;">Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Cilamcorper ut. Non, amet, aliquet scelerisque nullam sagittis, pulvinar.</p>
+      <div class="services-grid">
+        <!-- Servicio 1 -->
+        <div class="service-card">
+          <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Electrical+Repairs" alt="Electrical Repairs" class="service-img">
+          <div class="service-content">
+            <h3 class="service-title">Electrical repairs</h3>
+            <p class="service-desc">Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed.</p>
+            <a href="#" class="learn-more">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="service-card">
+          <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Plumbing+Services" alt="Plumbing Services" class="service-img">
+          <div class="service-content">
+            <h3 class="service-title">Plumbing services</h3>
+            <p class="service-desc">Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed.</p>
+            <a href="#" class="learn-more">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="service-card">
+          <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Painting+Drywall" alt="Painting & Drywall" class="service-img">
+          <div class="service-content">
+            <h3 class="service-title">Painting & Drywall</h3>
+            <p class="service-desc">Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed.</p>
+            <a href="#" class="learn-more">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Servicio 4 -->
+        <div class="service-card">
+          <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Rooftop+Work" alt="Roof Services" class="service-img">
+          <div class="service-content">
+            <h3 class="service-title">Roof services</h3>
+            <p class="service-desc">Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed.</p>
+            <a href="#" class="learn-more">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Servicio 5 -->
+        <div class="service-card">
+          <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Home+Maintenance" alt="Home Maintenance" class="service-img">
+          <div class="service-content">
+            <h3 class="service-title">Home maintenance</h3>
+            <p class="service-desc">Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed.</p>
+            <a href="#" class="learn-more">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Servicio 6 -->
+        <div class="service-card">
+          <img src="https://via.placeholder.com/300x200/cccccc/333333?text=Air+Conditioning" alt="Air Condition Installation" class="service-img">
+          <div class="service-content">
+            <h3 class="service-title">Air condition installation</h3>
+            <p class="service-desc">Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed.</p>
+            <a href="#" class="learn-more">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">HANDYFORCE</div>
+      <p>Quality service you can rely on — 24/7 assistance.</p>
+      <div class="footer-links">
+        <a href="#">Services</a>
+        <a href="#">Pricing</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="copyright">© 2025 HandyForce. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
