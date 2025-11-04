@@ -24,41 +24,33 @@
       padding: 0 20px;
     }
 
-    /* Hero Section */
+    /* Hero Section - Ahora con fondo azul marino */
     .hero {
-      background: url('https://images.unsplash.com/photo-1560448204-e628a22d573e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center;
-      background-size: cover;
+      background-color: #001f3f; /* Azul marino profundo */
       color: white;
-      padding: 100px 20px 120px;
+      padding: 100px 20px;
       position: relative;
-      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
     }
 
     .hero-content {
       max-width: 600px;
-      z-index: 2;
-      position: relative;
     }
 
     .hero h1 {
       font-size: 48px;
       margin-bottom: 15px;
       line-height: 1.2;
-    }
-
-    .hero h1 span {
-      color: #ff9900;
+      color: #ff9900; /* Naranja vibrante */
     }
 
     .hero p {
       font-size: 16px;
       margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
+      color: #ddd;
     }
 
     .btn {
@@ -70,37 +62,27 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-    }
-
-    .btn-primary {
       background: #ff9900;
       color: white;
       border: 2px solid #ff9900;
     }
 
-    .btn-primary:hover {
+    .btn:hover {
       background: #e68a00;
       border-color: #e68a00;
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: white;
-      border: 2px solid white;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
     .hero-image {
-      position: absolute;
-      right: 5%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 350px;
+      width: 400px;
       border-radius: 10px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* Sección About Us */
@@ -263,18 +245,15 @@
 </head>
 <body>
 
-  <!-- Hero Section -->
+  <!-- Hero Section con fondo azul marino -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Your Trusted Handyman for <span>Plumbing, Electrical, & Roofing</span> Needs</h1>
-        <p>Quality Service You Can Rely On — 24/7 Assistance.</p>
-        <div class="hero-buttons">
-          <a href="#" class="btn btn-primary">Book Now →</a>
-          <a href="#" class="btn btn-secondary">Get a Free Quote</a>
-        </div>
-      </div>
-      <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=350&q=80" alt="Handyman" class="hero-image">
+    <div class="hero-content">
+      <h1>Plumbing, Electrical, & Roofing</h1>
+      <p>Quality Service You Can Rely On — 24/7 Assistance.</p>
+      <a href="#" class="btn">Book Now →</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Computer with blueprints">
     </div>
   </section>
 
@@ -367,7 +346,7 @@
     </div>
   </section>
 
-  <!-- Footer con botón Contáctanos y SIN enlaces de texto -->
+  <!-- Footer con botón Contáctanos -->
   <footer>
     <div class="container">
       <div class="footer-logo">HANDYFORCE</div>
@@ -376,8 +355,6 @@
       <!-- Botón Contáctanos dentro del footer -->
       <a href="mailto:contacto@handyforce.com" class="btn-contact-footer">Contáctanos</a>
 
-      <!-- ⬇️ Los enlaces "Services, Pricing, Projects, Help" han sido ELIMINADOS ⬇️ -->
-      
       <div class="copyright">© 2025 HandyForce. All rights reserved.</div>
     </div>
   </footer>
