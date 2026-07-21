@@ -37,9 +37,33 @@
             border-bottom: 1px solid #e9ecef;
         }
         .header h1 { font-size: 2rem; font-weight: 800; color: #111; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
-        .header p { color: #6c757d; font-size: 1.05rem; margin-bottom: 1rem; }
+        .header p { color: #6c757d; font-size: 1.05rem; margin-bottom: 1.5rem; }
+        
+        /* Contenedor y diseño del Buscador */
+        .search-container {
+            max-width: 450px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1.2rem;
+            font-size: 0.95rem;
+            border: 2px solid #e9ecef;
+            border-radius: 50px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background-color: #f8f9fa;
+        }
+        .search-input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+            background-color: #ffffff;
+        }
+
         .catalogo { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem; }
         .catalogo h2 { font-size: 1.4rem; margin-bottom: 1.5rem; text-align: center; font-weight: 700; color: #212529; }
+        
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -114,6 +138,15 @@
         .btn-demo:hover { background: #e9ecef; }
         .btn-solicitar { background: #0d6efd; color: #fff; }
         .btn-solicitar:hover { background: #0b5ed7; }
+
+        /* Estado sin resultados */
+        .no-results {
+            display: none;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #6c757d;
+        }
         
         /* Botón Flotante Fijo */
         .whatsapp-float {
@@ -148,11 +181,16 @@
     <header class="header">
         <h1>LandingPageMarket</h1>
         <p>Elige tu landing ideal y empieza a vender más 🚀</p>
+        
+        <!-- Buscador integrado -->
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por nombre o rubro (ej. comida, cursos)...">
+        </div>
     </header>
 
     <main class="catalogo">
         <h2>Catálogo de Landing Pages</h2>
-        <div class="grid">
+        <div class="grid" id="catalogoGrid">
 
             <!-- Restaurante -->
             <article class="card">
@@ -244,6 +282,11 @@
                 </div>
             </article>
 
+            <!-- Mensaje cuando no hay resultados de búsqueda -->
+            <div id="noResults" class="no-results">
+                <p>🔍 No encontramos plantillas para tu búsqueda.</p>
+            </div>
+
         </div>
     </main>
 
@@ -255,6 +298,39 @@
     <footer class="footer">
         <p>© 2026 LandingPageMarket | Diseños profesionales para emprendedores</p>
     </footer>
+
+    <!-- JavaScript Vanilla para filtrado en tiempo real -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const cards = document.querySelectorAll('.card');
+            const noResults = document.getElementById('noResults');
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                let matches = 0;
+
+                cards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+
+                    if (title.includes(query) || description.includes(query)) {
+                        card.style.display = 'flex';
+                        matches++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Muestra un mensaje si la búsqueda no coincide con ninguna plantilla
+                if (matches === 0 && query !== '') {
+                    noResults.style.display = 'block';
+                } else {
+                    noResults.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
