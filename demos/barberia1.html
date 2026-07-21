@@ -1,518 +1,447 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Divi Barber | Fresh Since 2000</title>
-  <meta name="description" content="Barbería premium en el centro. Cortes clásicos y modernos desde $20. Reserva tu silla hoy.">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divi Barber | Barbería Premium y Agendamiento</title>
+    <meta name="description" content="Barbería premium. Cortes clásicos, modernos, perfilado de barba y afeitado con navaja. Agenda tu cita directo por WhatsApp.">
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #121212;
-      color: white;
-      line-height: 1.6;
-      background-image: 
-        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-        url('https://images.unsplash.com/photo-1647140655214-e4a2d914971f?w=600');
-      background-size: cover;
-      background-attachment: fixed;
-    }
+    <!-- Metaetiquetas Open Graph (WhatsApp, Instagram, Facebook) -->
+    <meta property="og:title" content="Divi Barber | Barbería Premium y Agendamiento">
+    <meta property="og:description" content="Cortes modernos, perfilado de barba y estilo tradicional. Agenda tu cita al instante por WhatsApp.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="website">
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
+    <!-- Preconexión para acelerar recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
+    <!-- CSS Inmune al bloqueo de renderizado -->
+    <link rel="stylesheet" href="../style.css" media="print" onload="this.media='all'">
 
-    /* Hero */
-    .hero {
-      padding: 6rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    <!-- CSS Crítico Inline (Velocidad e Interfaz Homogénea) -->
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+            padding-bottom: 90px; /* Espacio para botón flotante */
+        }
+        
+        /* Navegación de retorno */
+        .top-nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem 1rem 0 1rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #0d6efd;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+        .back-link:hover { color: #0b5ed7; text-decoration: underline; }
 
-    .hero-text {
-      flex: 1;
-      max-width: 600px;
-    }
+        /* Header / Hero */
+        .header {
+            text-align: center;
+            padding: 2.5rem 1rem 2rem 1rem;
+            background: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .header h1 { font-size: 2.2rem; font-weight: 800; color: #111; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+        .header p { color: #6c757d; font-size: 1.05rem; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        /* Buscador del Menú */
+        .search-container {
+            max-width: 450px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1.2rem;
+            font-size: 0.95rem;
+            border: 2px solid #e9ecef;
+            border-radius: 50px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background-color: #f8f9fa;
+        }
+        .search-input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+            background-color: #ffffff;
+        }
 
-    .hero-text h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      line-height: 1.1;
-      color: white;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    }
+        /* Secciones del Catálogo */
+        .catalogo { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+        .category-title { 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+            color: #212529; 
+            margin: 2rem 0 1rem 0; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .card-preview {
+            width: 100%;
+            height: 160px;
+            background-color: #f1f3f5;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #e9ecef;
+        }
+        .card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .card:hover .card-preview img {
+            transform: scale(1.04);
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #0d6efd;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            z-index: 2;
+        }
+        .badge-pop { background: #20c997; }
+        .badge-chef { background: #fd7e14; }
 
-    .hero-text p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
+        .card-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.4rem;
+        }
+        .card h3 { font-size: 1.15rem; color: #111; }
+        .price-tag { 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            color: #198754; 
+            background: #d1e7dd; 
+            padding: 2px 8px; 
+            border-radius: 6px; 
+        }
+        .card p { font-size: 0.9rem; color: #495057; margin-bottom: 1.2rem; line-height: 1.4; }
+        
+        .card-buttons { display: flex; gap: 0.6rem; }
+        .btn-solicitar {
+            flex: 1;
+            text-align: center;
+            padding: 0.65rem 0.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #0d6efd;
+            color: #fff;
+            transition: background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .btn-solicitar:hover { background: #0b5ed7; }
 
-    .btn {
-      display: inline-block;
-      background: #ffcc00;
-      color: #000;
-      padding: 12px 28px;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
-    }
+        /* Sección Horarios e Info */
+        .info-section {
+            background: #ffffff;
+            border-top: 1px solid #e9ecef;
+            border-bottom: 1px solid #e9ecef;
+            padding: 2.5rem 1rem;
+            margin-top: 2rem;
+        }
+        .info-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .info-box h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; color: #111; }
+        .hours-list { list-style: none; font-size: 0.92rem; color: #495057; }
+        .hours-list li { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed #e9ecef; }
 
-    .btn:hover {
-      background: #e6b800;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(255, 204, 0, 0.6);
-    }
-
-    .hero-image {
-      flex: 1;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      height: 400px;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Services */
-    .services {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      color: white;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 70px;
-      height: 4px;
-      background: #ffcc00;
-      margin: 12px auto;
-      border-radius: 2px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .service-card {
-      background: rgba(255,255,255,0.05);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      background: rgba(255,255,255,0.1);
-    }
-
-    .service-name {
-      font-size: 1.5rem;
-      color: #ffcc00;
-      margin-bottom: 0.5rem;
-    }
-
-    .service-price {
-      font-size: 1.2rem;
-      color: #fff;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .service-desc {
-      color: #aaa;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    /* Testimonials */
-    .testimonials {
-      padding: 5rem 2rem;
-      background: rgba(0,0,0,0.5);
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .testimonials-section {
-      text-align: center;
-      padding: 3rem 2rem;
-    }
-
-    .testimonials-section h2 {
-      font-size: 2.5rem;
-      color: white;
-      margin-bottom: 1rem;
-      position: relative;
-      display: inline-block;
-      margin: 0 auto;
-    }
-
-    .testimonials-section h2::after {
-      content: '';
-      display: block;
-      width: 70px;
-      height: 4px;
-      background: #ffcc00;
-      margin: 12px auto;
-      border-radius: 2px;
-    }
-
-    .testimonial-carousel {
-      max-width: 800px;
-      margin: 3rem auto;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .testimonial-card {
-      min-width: 100%;
-      padding: 2rem;
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      text-align: center;
-    }
-
-    .testimonial-quote {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ddd;
-      font-style: italic;
-      margin-bottom: 1.5rem;
-    }
-
-    .testimonial-author {
-      font-size: 0.9rem;
-      color: #ffcc00;
-      font-weight: 600;
-    }
-
-    .carousel-nav {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
-    }
-
-    .carousel-arrow {
-      background: rgba(255,255,255,0.1);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .carousel-arrow:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 1.5rem;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      background: #aaa;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .dot.active {
-      background: #ffcc00;
-    }
-
-    /* Footer */
-    footer {
-      background: #000;
-      color: white;
-      padding: 3rem 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      align-items: start;
-      text-align: center;
-    }
-
-    .footer-image {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 1rem;
-    }
-
-    .footer-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .footer-text {
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-text h1 { font-size: 2.5rem; }
-      .hero-image { height: 250px; }
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-      .testimonials-section h2 { font-size: 2rem; }
-      .testimonial-quote { font-size: 1rem; }
-      .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .footer-image {
-        margin: 0 auto 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-text h1 { font-size: 2rem; }
-      .section-title { font-size: 2rem; }
-      .service-name { font-size: 1.3rem; }
-      .service-price { font-size: 1.1rem; }
-      .testimonials-section h2 { font-size: 1.8rem; }
-    }
-  </style>
+        /* Estado sin resultados */
+        .no-results {
+            display: none;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #6c757d;
+        }
+        
+        /* Botón Flotante Fijo con Animación de Pulso */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            left: 16px;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #25D366;
+            color: #ffffff;
+            text-align: center;
+            padding: 12px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+        .whatsapp-float:hover { background-color: #20ba5a; }
+        .whatsapp-float:active { transform: scale(0.98); }
+        .whatsapp-icon { fill: #ffffff; width: 22px; height: 22px; flex-shrink: 0; }
+        
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .footer { text-align: center; padding: 2rem 1rem; color: #6c757d; font-size: 0.85rem; }
+    </style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-text">
-      <p>FRESH SINCE 2000</p>
-      <h1>DIVI BARBER</h1>
-      <p>Donde el estilo se encuentra con la tradición.</p>
-      <a href="https://wa.me/34612345678" target="_blank" class="btn">Agenda tu cita</a>
-    </div>
-    <div class="hero-image">
-      <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600" alt="Barbero cortando pelo">
-    </div>
-  </section>
+    <!-- Retorno al catálogo general -->
+    <nav class="top-nav">
+        <a href="../index.html" class="back-link">← Volver al Catálogo General</a>
+    </nav>
 
-  <!-- Services -->
-  <section class="services" id="servicios">
-    <h2 class="section-title">SERVICES</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-name">HAIRCUT</div>
-        <div class="service-price">$39</div>
-        <div class="service-desc">Corte clásico con tijera y peine. Ideal para quien busca un look limpio y profesional.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-name">STYLED HAIRCUT</div>
-        <div class="service-price">$45</div>
-        <div class="service-desc">Corte con diseño personalizado. Para quienes quieren destacar su estilo único.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-name">BUZZ CUT</div>
-        <div class="service-price">$24</div>
-        <div class="service-desc">Corte rápido y práctico. Perfecto para deportistas o quienes prefieren bajo mantenimiento.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-name">LONG SHEER CUT</div>
-        <div class="service-price">$85</div>
-        <div class="service-desc">Corte largo con capas y textura. Para cabellos largos que necesitan forma y movimiento.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-name">KIDS CUT</div>
-        <div class="service-price">$20</div>
-        <div class="service-desc">Cortes especiales para niños. Ambiente divertido y seguro.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-name">STRAIGHT RAZOR</div>
-        <div class="service-price">$75</div>
-        <div class="service-desc">Afeitado con navaja recta. Experiencia de lujo para piel sensible.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-name">BEARD TRIM</div>
-        <div class="service-price">$29</div>
-        <div class="service-desc">Recorte y definición de barba. Deja tu barba impecable.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-name">CLIPPER HAIRCUT</div>
-        <div class="service-price">$50</div>
-        <div class="service-desc">Corte con máquina. Rápido, preciso y moderno.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-name">CLEAN SHAVE</div>
-        <div class="service-price">$45</div>
-        <div class="service-desc">Afeitado completo con crema y cuchilla. Suavidad extrema.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-name">SUNDAY SERVICE</div>
-        <div class="service-price">$100</div>
-        <div class="service-desc">Paquete completo: corte, afeitado, masaje facial y más. El lujo del fin de semana.</div>
-      </div>
-    </div>
-  </section>
+    <header class="header">
+        <h1>💈 Divi Barber</h1>
+        <p>Donde el estilo clásico se encuentra con la tendencia moderna. Reserva tu espacio y renueva tu imagen.</p>
+        
+        <!-- Buscador integrado -->
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar servicio (ej. corte, barba, navaja)...">
+        </div>
+    </header>
 
-  <!-- Testimonials -->
-  <section class="testimonials" id="testimonios">
-    <div class="testimonials-section">
-      <h2>TESTIMONIALS</h2>
+    <main class="catalogo">
 
-      <div class="testimonial-carousel">
-        <div class="carousel-inner">
-          <!-- Testimonio 1 -->
-          <div class="testimonial-card">
-            <p class="testimonial-quote">“¡Increíble experiencia! Me hicieron un corte que me cambió la vida. El ambiente es relajado y los barberos son profesionales de verdad.”</p>
-            <p class="testimonial-author">— Alex Fernández</p>
-          </div>
+        <!-- Cortes de Cabello -->
+        <h2 class="category-title">✂️ Cortes y Estilismo</h2>
+        <div class="grid">
+            <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-pop">Clásico</span>
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500" alt="Corte Tradicional" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Haircut Clásico</h3>
+                    <span class="price-tag">$39.00</span>
+                </div>
+                <p>Corte clásico realizado con tijera y peine para un acabado impecable y profesional.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20quisiera%20agendar%20un%20Haircut%20Cl%C3%A1sico" target="_blank" rel="noopener" class="btn-solicitar">Agendar Cita</a>
+                </div>
+            </article>
 
-          <!-- Testimonio 2 -->
-          <div class="testimonial-card">
-            <p class="testimonial-quote">“Llegué sin saber qué quería y salí con un look perfecto. ¡Los recomiendo 100%!”</p>
-            <p class="testimonial-author">— Carlos Mendoza</p>
-          </div>
+            <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-chef">Tendencia</span>
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=500" alt="Corte Moderno" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Styled Haircut</h3>
+                    <span class="price-tag">$45.00</span>
+                </div>
+                <p>Corte con diseño y degradado personalizado según la morfología del rostro.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20quisiera%20agendar%20un%20Styled%20Haircut" target="_blank" rel="noopener" class="btn-solicitar">Agendar Cita</a>
+                </div>
+            </article>
 
-          <!-- Testimonio 3 -->
-          <div class="testimonial-card">
-            <p class="testimonial-quote">“El mejor lugar para cuidar tu imagen. Siempre puntual y con atención personalizada.”</p>
-            <p class="testimonial-author">— David López</p>
-          </div>
+            <article class="card">
+                <div class="card-preview">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500" alt="Corte de Niños" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Kids Cut</h3>
+                    <span class="price-tag">$20.00</span>
+                </div>
+                <p>Cortes especiales para niños en un ambiente cómodo, dinámico y seguro.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20quisiera%20agendar%20un%20Kids%20Cut" target="_blank" rel="noopener" class="btn-solicitar">Agendar Cita</a>
+                </div>
+            </article>
         </div>
 
-        <!-- Flechas -->
-        <div class="carousel-nav">
-          <div class="carousel-arrow" id="prev">←</div>
-          <div class="carousel-arrow" id="next">→</div>
+        <!-- Barba y Afeitado -->
+        <h2 class="category-title">🪒 Barba & Afeitado Tradicional</h2>
+        <div class="grid">
+            <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-pop">Más Pedido</span>
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=500" alt="Perfilado de Barba" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Beard Trim</h3>
+                    <span class="price-tag">$29.00</span>
+                </div>
+                <p>Recorte, alineado y nutrición con aceites esenciales para mantener tu barba perfecta.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20quisiera%20agendar%20un%20Beard%20Trim" target="_blank" rel="noopener" class="btn-solicitar">Agendar Cita</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-chef">Afeitado de Lujo</span>
+                    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?w=500" alt="Afeitado Navaja" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Straight Razor</h3>
+                    <span class="price-tag">$75.00</span>
+                </div>
+                <p>Ritual de afeitado con navaja, toallas calientes y tratamiento relajante para piel sensible.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20quisiera%20agendar%20un%20Straight%20Razor" target="_blank" rel="noopener" class="btn-solicitar">Agendar Cita</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-preview">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500" alt="Combo Premium" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Sunday VIP Service</h3>
+                    <span class="price-tag">$100.00</span>
+                </div>
+                <p>Experiencia completa: corte de cabello, afeitado tradicional, mascarilla facial y bebida de cortesía.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20quisiera%20agendar%20el%20Sunday%20VIP%20Service" target="_blank" rel="noopener" class="btn-solicitar">Agendar Cita</a>
+                </div>
+            </article>
         </div>
 
-        <!-- Puntos -->
-        <div class="carousel-dots">
-          <div class="dot active" data-index="0"></div>
-          <div class="dot" data-index="1"></div>
-          <div class="dot" data-index="2"></div>
+        <!-- Sin resultados -->
+        <div id="noResults" class="no-results">
+            <p>🔍 No encontramos servicios para tu búsqueda.</p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer id="contacto">
-    <div class="footer-content">
-      <div class="footer-image">
-        <img src="https://images.unsplash.com/photo-1678356164573-9a534fe43958?w=600" alt="Barbero">
-      </div>
-      <p class="footer-text">Visítanos en el centro. Abierto de lunes a domingo.</p>
-      <p class="footer-text">📍 Calle del Corte, 123 • Ciudad, España</p>
-      <p class="footer-text">📞 +34 912 345 678</p>
-    </div>
-  </footer>
+    </main>
 
-  <script>
-    // Script para el carrusel de testimonios
-    document.addEventListener('DOMContentLoaded', function() {
-      const carouselInner = document.querySelector('.carousel-inner');
-      const dots = document.querySelectorAll('.dot');
-      const prevBtn = document.getElementById('prev');
-      const nextBtn = document.getElementById('next');
-      let currentIndex = 0;
-      const totalSlides = dots.length;
+    <!-- Información de Servicio -->
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-box">
+                <h4>🕒 Horarios de Atención</h4>
+                <ul class="hours-list">
+                    <li><span>Lunes a Sábado:</span> <span>09:00 – 20:00</span></li>
+                    <li><span>Domingos:</span> <span>10:00 – 17:00</span></li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h4>📍 Ubicación y Reservas</h4>
+                <p style="font-size:0.92rem; color:#495057; margin-bottom: 0.8rem;">Calle del Corte, 123, Vía Argentina, Ciudad de Panamá.</p>
+                <p style="font-size:0.92rem; color:#495057;">Atención rápida por WhatsApp: +507 6218-7478</p>
+            </div>
+        </div>
+    </section>
 
-      function updateCarousel() {
-        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+    <!-- Botón Flotante Fijo de WhatsApp con SVG y Pulso -->
+    <a href="https://wa.me/50762187478?text=Hola,%20quisiera%20consultar%20disponibilidad%20de%20citas%20en%20Divi%20Barber" class="whatsapp-float" target="_blank" rel="noopener">
+        <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+        <span>Agendar cita por WhatsApp</span>
+    </a>
 
-        // Actualizar puntos activos
-        dots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === currentIndex);
+    <footer class="footer">
+        <p>© 2026 Divi Barber | Plantilla para Barberías y Salones</p>
+    </footer>
+
+    <!-- JS de Filtrado en Tiempo Real -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const cards = document.querySelectorAll('.card');
+            const categoryTitles = document.querySelectorAll('.category-title');
+            const noResults = document.getElementById('noResults');
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                let matches = 0;
+
+                cards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+
+                    if (title.includes(query) || description.includes(query)) {
+                        card.style.display = 'flex';
+                        matches++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                categoryTitles.forEach(title => {
+                    title.style.display = query === '' ? 'flex' : 'none';
+                });
+
+                if (matches === 0 && query !== '') {
+                    noResults.style.display = 'block';
+                } else {
+                    noResults.style.display = 'none';
+                }
+            });
         });
-      }
-
-      // Función para ir al siguiente
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateCarousel();
-      }
-
-      // Función para ir al anterior
-      function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-      }
-
-      // Eventos de flechas
-      nextBtn.addEventListener('click', nextSlide);
-      prevBtn.addEventListener('click', prevSlide);
-
-      // Eventos de puntos
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          currentIndex = parseInt(dot.getAttribute('data-index'));
-          updateCarousel();
-        });
-      });
-
-      // Auto-play (opcional)
-      // setInterval(nextSlide, 5000);
-    });
-  </script>
+    </script>
 
 </body>
 </html>
