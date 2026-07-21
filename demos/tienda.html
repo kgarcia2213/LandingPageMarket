@@ -1,430 +1,481 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tienda Virtual | Compra en línea</title>
-  <meta name="description" content="Descubre nuestros productos electrónicos, accesorios y más. Compra en línea con envío rápido.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Digital | Catálogo de Productos</title>
+    <meta name="description" content="Descubre nuestros productos electrónicos, accesorios y gadgets. Compra en línea con envío rápido y consulta directa por WhatsApp.">
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
-    }
+    <!-- Metaetiquetas Open Graph (WhatsApp, Instagram, Facebook) -->
+    <meta property="og:title" content="Tienda Digital | Catálogo de Productos">
+    <meta property="og:description" content="Encuentra laptops, tablets, gadgets y más. Envíos rápidos y pedidos directos por WhatsApp.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://kgarcia2213.github.io/LandingPageMarket/demos/tienda.html">
+    <meta property="og:type" content="website">
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
+    <!-- Preconexión para acelerar recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-      color: white;
-      text-align: center;
-      padding: 4rem 2rem;
-      margin: 2rem 0;
-      border-radius: 12px;
-    }
+    <!-- CSS Inmune al bloqueo de renderizado -->
+    <link rel="stylesheet" href="../style.css" media="print" onload="this.media='all'">
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+    <!-- CSS Crítico Inline (Velocidad e Interfaz Homogénea) -->
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+            padding-bottom: 90px; /* Espacio para botón flotante */
+        }
+        
+        /* Navegación de retorno */
+        .top-nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem 1rem 0 1rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #0d6efd;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+        .back-link:hover { color: #0b5ed7; text-decoration: underline; }
 
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
+        /* Header / Hero */
+        .header {
+            text-align: center;
+            padding: 2.5rem 1rem 2rem 1rem;
+            background: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .header h1 { font-size: 2.2rem; font-weight: 800; color: #111; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+        .header p { color: #6c757d; font-size: 1.05rem; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        /* Buscador del Menú */
+        .search-container {
+            max-width: 450px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1.2rem;
+            font-size: 0.95rem;
+            border: 2px solid #e9ecef;
+            border-radius: 50px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background-color: #f8f9fa;
+        }
+        .search-input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+            background-color: #ffffff;
+        }
 
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #2575fc;
-      padding: 12px 28px;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
+        /* Secciones del Catálogo */
+        .catalogo { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+        .category-title { 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+            color: #212529; 
+            margin: 2rem 0 1rem 0; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .card-preview {
+            width: 100%;
+            height: 160px;
+            background-color: #f1f3f5;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #e9ecef;
+        }
+        .card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .card:hover .card-preview img {
+            transform: scale(1.04);
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #0d6efd;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            z-index: 2;
+        }
+        .badge-pop { background: #20c997; }
+        .badge-chef { background: #fd7e14; }
 
-    .btn:hover {
-      background: #f0f0f0;
-      transform: translateY(-2px);
-    }
+        .card-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.4rem;
+        }
+        .card h3 { font-size: 1.15rem; color: #111; }
+        .price-tag { 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            color: #198754; 
+            background: #d1e7dd; 
+            padding: 2px 8px; 
+            border-radius: 6px; 
+        }
+        .card p { font-size: 0.9rem; color: #495057; margin-bottom: 1.2rem; line-height: 1.4; }
+        
+        .card-buttons { display: flex; gap: 0.6rem; }
+        .btn-solicitar {
+            flex: 1;
+            text-align: center;
+            padding: 0.65rem 0.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #0d6efd;
+            color: #fff;
+            transition: background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .btn-solicitar:hover { background: #0b5ed7; }
 
-    /* Shop Layout */
-    .shop-layout {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+        /* Sección Horarios e Info */
+        .info-section {
+            background: #ffffff;
+            border-top: 1px solid #e9ecef;
+            border-bottom: 1px solid #e9ecef;
+            padding: 2.5rem 1rem;
+            margin-top: 2rem;
+        }
+        .info-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .info-box h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; color: #111; }
+        .hours-list { list-style: none; font-size: 0.92rem; color: #495057; }
+        .hours-list li { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed #e9ecef; }
 
-    /* Sidebar */
-    .sidebar {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-
-    .sidebar h3 {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    .filter-category {
-      margin-bottom: 1.5rem;
-    }
-
-    .filter-category h4 {
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    .filter-list {
-      list-style: none;
-    }
-
-    .filter-list li {
-      margin-bottom: 0.5rem;
-    }
-
-    .filter-list a {
-      color: #555;
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: block;
-      padding: 0.5rem;
-      border-radius: 6px;
-      transition: background 0.2s;
-    }
-
-    .filter-list a:hover {
-      background: #f0f0f0;
-    }
-
-    /* Product Grid */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .product-image {
-      width: 100%;
-      height: 200px;
-      background: #eee;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .product-info {
-      padding: 1rem;
-    }
-
-    .product-name {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-    }
-
-    .product-price {
-      font-weight: 700;
-      color: #007bff;
-      margin-bottom: 0.5rem;
-    }
-
-    .product-status {
-      font-size: 0.8rem;
-      color: #28a745;
-      font-weight: 500;
-    }
-
-    .product-btn {
-      display: block;
-      width: 100%;
-      background: #007bff;
-      color: white;
-      text-align: center;
-      padding: 8px;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-      transition: background 0.3s;
-    }
-
-    .product-btn:hover {
-      background: #0056b3;
-    }
-
-    /* Footer */
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
-    }
-
-    /* Botón flotante de WhatsApp mejorado */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #25D366;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 50px;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-      z-index: 1000;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
-    }
-
-    .whatsapp-button:hover {
-      background: #128C7E;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.8);
-    }
-
-    .whatsapp-button .whatsapp-text {
-      white-space: nowrap;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
-      50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.9); }
-      100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .shop-layout {
-        grid-template-columns: 1fr;
-      }
-      .hero h1 { font-size: 2rem; }
-      .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-      .whatsapp-button {
-        bottom: 20px;
-        right: 20px;
-        padding: 16px 22px;
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .product-card {
-        margin-bottom: 1rem;
-      }
-    }
-  </style>
+        /* Estado sin resultados */
+        .no-results {
+            display: none;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #6c757d;
+        }
+        
+        /* Botón Flotante Fijo con Animación de Pulso */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            left: 16px;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #25D366;
+            color: #ffffff;
+            text-align: center;
+            padding: 12px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+        .whatsapp-float:hover { background-color: #20ba5a; }
+        .whatsapp-float:active { transform: scale(0.98); }
+        .whatsapp-icon { fill: #ffffff; width: 22px; height: 22px; flex-shrink: 0; }
+        
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .footer { text-align: center; padding: 2rem 1rem; color: #6c757d; font-size: 0.85rem; }
+    </style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>¡Bienvenido a Nuestra Tienda Online!</h1>
-    <p>Encuentra los mejores productos electrónicos, accesorios y más. Envíos rápidos y seguros.</p>
-    <a href="#productos" class="btn">Explorar Productos</a>
-  </section>
+    <!-- Retorno al catálogo general -->
+    <nav class="top-nav">
+        <a href="../index.html" class="back-link">← Volver al Catálogo General</a>
+    </nav>
 
-  <!-- Shop Layout -->
-  <div class="container shop-layout">
+    <header class="header">
+        <h1>🛍️ Tienda Digital</h1>
+        <p>Los mejores productos tecnológicos y gadgets con entrega rápida y atención personalizada por WhatsApp.</p>
+        
+        <!-- Buscador integrado -->
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por producto (ej. iPad, MacBook, Sony)...">
+        </div>
+    </header>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <h3>Categorías</h3>
-      <div class="filter-category">
-        <h4>Por Categoría</h4>
-        <ul class="filter-list">
-          <li><a href="#">Electrónica</a></li>
-          <li><a href="#">Accesorios</a></li>
-          <li><a href="#">Ropa</a></li>
-          <li><a href="#">Hogar</a></li>
-        </ul>
-      </div>
+    <main class="catalogo">
 
-      <div class="filter-category">
-        <h4>Por Marca</h4>
-        <ul class="filter-list">
-          <li><a href="#">Apple</a></li>
-          <li><a href="#">Samsung</a></li>
-          <li><a href="#">Sony</a></li>
-          <li><a href="#">Nike</a></li>
-        </ul>
-      </div>
+        <!-- Dispositivos Principales -->
+        <h2 class="category-title">💻 Laptops y Tablets</h2>
+        <div class="grid">
+            <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-pop">Más Vendido</span>
+                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500" alt="iPad Pro" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>iPad Pro</h3>
+                    <span class="price-tag">$899.00</span>
+                </div>
+                <p>Pantalla Liquid Retina, chip de alto rendimiento e ideal para diseño y trabajo móvil.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20estoy%20interesado%20en%20el%20iPad%20Pro" target="_blank" rel="noopener" class="btn-solicitar">Consultar por WhatsApp</a>
+                </div>
+            </article>
 
-      <div class="filter-category">
-        <h4>Precio</h4>
-        <input type="range" min="0" max="1000" value="500" class="price-range" disabled>
-        <p>Rango: $0 - $1000</p>
-      </div>
-    </aside>
+            <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-chef">Recomendado</span>
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500" alt="MacBook Air" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>MacBook Air</h3>
+                    <span class="price-tag">$999.00</span>
+                </div>
+                <p>Diseño ultraligero, batería de larga duración y potencia excepcional para el día a día.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20estoy%20interesado%20en%20el%20MacBook%20Air" target="_blank" rel="noopener" class="btn-solicitar">Consultar por WhatsApp</a>
+                </div>
+            </article>
 
-    <!-- Products -->
-    <main class="products-grid" id="productos">
-      <!-- Producto 1 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://picsum.photos/300/200?random=1" alt="iPad Pro">
+            <article class="card">
+                <div class="card-preview">
+                    <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500" alt="iPhone 15" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>iPhone 15</h3>
+                    <span class="price-tag">$799.00</span>
+                </div>
+                <p>Cámara avanzada de 48 MP, Dynamic Island y diseño resistente de vidrio y aluminio.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20estoy%20interesado%20en%20el%20iPhone%2015" target="_blank" rel="noopener" class="btn-solicitar">Consultar por WhatsApp</a>
+                </div>
+            </article>
         </div>
-        <div class="product-info">
-          <div class="product-name">iPad Pro</div>
-          <div class="product-price">$899.00</div>
-          <div class="product-status">Disponible</div>
-          <a href="#" class="product-btn">Ver producto</a>
-        </div>
-      </div>
 
-      <!-- Producto 2 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://picsum.photos/300/200?random=2" alt="MacBook Air">
-        </div>
-        <div class="product-info">
-          <div class="product-name">MacBook Air</div>
-          <div class="product-price">$999.00</div>
-          <div class="product-status">Disponible</div>
-          <a href="#" class="product-btn">Ver producto</a>
-        </div>
-      </div>
+        <!-- Audio y Wearables -->
+        <h2 class="category-title">🎧 Audio y Wearables</h2>
+        <div class="grid">
+            <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-pop">Pop</span>
+                    <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" alt="Apple Watch" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Apple Watch Series 8</h3>
+                    <span class="price-tag">$399.00</span>
+                </div>
+                <p>Sensores avanzados de salud, medición de entrenamiento y conectividad total.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20estoy%20interesado%20en%20el%20Apple%20Watch%20Series%208" target="_blank" rel="noopener" class="btn-solicitar">Consultar por WhatsApp</a>
+                </div>
+            </article>
 
-      <!-- Producto 3 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://picsum.photos/300/200?random=3" alt="Apple Watch">
-        </div>
-        <div class="product-info">
-          <div class="product-name">Apple Watch Series 8</div>
-          <div class="product-price">$399.00</div>
-          <div class="product-status">Disponible</div>
-          <a href="#" class="product-btn">Ver producto</a>
-        </div>
-      </div>
+            <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-chef">Top Audio</span>
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Auriculares Sony" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Sony WH-1000XM5</h3>
+                    <span class="price-tag">$349.00</span>
+                </div>
+                <p>Cancelación de ruido líder en el mercado y sonido de alta fidelidad inmersivo.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20estoy%20interesado%20en%20los%20Auriculares%20Sony" target="_blank" rel="noopener" class="btn-solicitar">Consultar por WhatsApp</a>
+                </div>
+            </article>
 
-      <!-- Producto 4 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://picsum.photos/300/200?random=4" alt="Auriculares Sony">
+            <article class="card">
+                <div class="card-preview">
+                    <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500" alt="Altavoz Bluetooth JBL" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Altavoz JBL Portable</h3>
+                    <span class="price-tag">$89.00</span>
+                </div>
+                <p>Resistente al agua, diseño compacto y graves potentes para llevar a cualquier lugar.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20estoy%20interesado%20en%20el%20Altavoz%20JBL" target="_blank" rel="noopener" class="btn-solicitar">Consultar por WhatsApp</a>
+                </div>
+            </article>
         </div>
-        <div class="product-info">
-          <div class="product-name">Auriculares Sony WH-1000XM5</div>
-          <div class="product-price">$349.00</div>
-          <div class="product-status">Disponible</div>
-          <a href="#" class="product-btn">Ver producto</a>
-        </div>
-      </div>
 
-      <!-- Producto 5 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://picsum.photos/300/200?random=5" alt="iPhone 15">
-        </div>
-        <div class="product-info">
-          <div class="product-name">iPhone 15</div>
-          <div class="product-price">$799.00</div>
-          <div class="product-status">Disponible</div>
-          <a href="#" class="product-btn">Ver producto</a>
-        </div>
-      </div>
+        <!-- Entretenimiento y Hogar -->
+        <h2 class="category-title">📺 Entretenimiento</h2>
+        <div class="grid">
+            <article class="card">
+                <div class="card-preview">
+                    <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=500" alt="TV Samsung 55" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>TV Samsung 55" 4K</h3>
+                    <span class="price-tag">$499.00</span>
+                </div>
+                <p>Smart TV con resolución 4K UHD, procesador veloz y colores ultra vibrantes.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20estoy%20interesado%20en%20la%20TV%20Samsung%2055" target="_blank" rel="noopener" class="btn-solicitar">Consultar por WhatsApp</a>
+                </div>
+            </article>
 
-      <!-- Producto 6 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://picsum.photos/300/200?random=6" alt="TV Samsung">
+            <article class="card">
+                <div class="card-preview">
+                    <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500" alt="Apple TV 4K" loading="lazy">
+                </div>
+                <div class="card-header-info">
+                    <h3>Apple TV 4K</h3>
+                    <span class="price-tag">$179.00</span>
+                </div>
+                <p>El mejor centro de entretenimiento para streaming, juegos y ecosistema de Apple.</p>
+                <div class="card-buttons">
+                    <a href="https://wa.me/50762187478?text=Hola,%20estoy%20interesado%20en%20el%20Apple%20TV%204K" target="_blank" rel="noopener" class="btn-solicitar">Consultar por WhatsApp</a>
+                </div>
+            </article>
         </div>
-        <div class="product-info">
-          <div class="product-name">TV Samsung 55"</div>
-          <div class="product-price">$499.00</div>
-          <div class="product-status">Disponible</div>
-          <a href="#" class="product-btn">Ver producto</a>
-        </div>
-      </div>
 
-      <!-- Producto 7 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://picsum.photos/300/200?random=7" alt="Apple TV">
+        <!-- Sin resultados -->
+        <div id="noResults" class="no-results">
+            <p>🔍 No encontramos productos para tu búsqueda.</p>
         </div>
-        <div class="product-info">
-          <div class="product-name">Apple TV 4K</div>
-          <div class="product-price">$179.00</div>
-          <div class="product-status">Disponible</div>
-          <a href="#" class="product-btn">Ver producto</a>
-        </div>
-      </div>
-
-      <!-- Producto 8 -->
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://picsum.photos/300/200?random=8" alt="Altavoz Bluetooth">
-        </div>
-        <div class="product-info">
-          <div class="product-name">Altavoz Bluetooth JBL</div>
-          <div class="product-price">$89.00</div>
-          <div class="product-status">Disponible</div>
-          <a href="#" class="product-btn">Ver producto</a>
-        </div>
-      </div>
 
     </main>
 
-  </div>
+    <!-- Información de Servicio -->
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-box">
+                <h4>🚀 Envíos y Garantía</h4>
+                <ul class="hours-list">
+                    <li><span>Envíos a todo el país:</span> <span>24 a 48 horas</span></li>
+                    <li><span>Garantía oficial:</span> <span>12 meses</span></li>
+                    <li><span>Métodos de pago:</span> <span>Transferencia / Yappy / Efectivo</span></li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h4>📍 Atención y Pedidos Directos</h4>
+                <p style="font-size:0.92rem; color:#495057; margin-bottom: 0.8rem;">Consulta disponibilidad y cotizaciones al instante.</p>
+                <p style="font-size:0.92rem; color:#495057;">Soporte por WhatsApp: +507 6218-7478</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/34612345678" target="_blank" class="whatsapp-button">
-    <span>💬</span>
-    <span class="whatsapp-text">Haz tu pedido o consulta</span>
-  </a>
+    <!-- Botón Flotante Fijo de WhatsApp con SVG y Pulso -->
+    <a href="https://wa.me/50762187478?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20productos%20de%20la%20Tienda%20Digital" class="whatsapp-float" target="_blank" rel="noopener">
+        <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+        <span>Haz tu pedido por WhatsApp</span>
+    </a>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 TiendaVirtual. Todos los derechos reservados.</p>
-    <p>Envíos a todo el país • Soporte 24/7</p>
-  </footer>
+    <footer class="footer">
+        <p>© 2026 Tienda Digital | Plantilla para E-commerce</p>
+    </footer>
+
+    <!-- JS de Filtrado en Tiempo Real -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const cards = document.querySelectorAll('.card');
+            const categoryTitles = document.querySelectorAll('.category-title');
+            const noResults = document.getElementById('noResults');
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                let matches = 0;
+
+                cards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+
+                    if (title.includes(query) || description.includes(query)) {
+                        card.style.display = 'flex';
+                        matches++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                categoryTitles.forEach(title => {
+                    title.style.display = query === '' ? 'flex' : 'none';
+                });
+
+                if (matches === 0 && query !== '') {
+                    noResults.style.display = 'block';
+                } else {
+                    noResults.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
