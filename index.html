@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LandingPageMarket | Catálogo de Landings</title>
+    <title>LandingPageMarket | Catálogo de Landing Pages</title>
     <meta name="description" content="Elige tu landing page ideal y empieza a vender más. Diseños profesionales y rápidos para emprendedores.">
 
     <!-- Metaetiquetas Open Graph (WhatsApp, Instagram, Facebook) -->
@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://kgarcia2213.github.io/LandingPageMarket/">
     <meta property="og:type" content="website">
 
-    <!-- Preconexión para acelerar recursos externos si los usas -->
+    <!-- Preconexión para acelerar recursos externos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -32,42 +32,89 @@
         }
         .header {
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem 2rem 1rem;
             background: #ffffff;
             border-bottom: 1px solid #e9ecef;
         }
-        .header h1 { font-size: 1.8rem; font-weight: 800; color: #111; margin-bottom: 0.5rem; }
-        .header p { color: #6c757d; font-size: 1rem; margin-bottom: 1rem; }
+        .header h1 { font-size: 2rem; font-weight: 800; color: #111; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+        .header p { color: #6c757d; font-size: 1.05rem; margin-bottom: 1rem; }
         .catalogo { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem; }
-        .catalogo h2 { font-size: 1.4rem; margin-bottom: 1.2rem; text-align: center; }
+        .catalogo h2 { font-size: 1.4rem; margin-bottom: 1.5rem; text-align: center; font-weight: 700; color: #212529; }
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
         .card {
             background: #fff;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 1.2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .card p { font-size: 0.95rem; color: #495057; margin-bottom: 1rem; }
-        .card-buttons { display: flex; gap: 0.5rem; }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .card-preview {
+            width: 100%;
+            height: 150px;
+            background-color: #f1f3f5;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #e9ecef;
+        }
+        .card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .card:hover .card-preview img {
+            transform: scale(1.04);
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #0d6efd;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            z-index: 2;
+        }
+        .badge-pop { background: #20c997; }
+        .badge-express { background: #fd7e14; }
+        .card h3 { font-size: 1.25rem; margin-bottom: 0.4rem; color: #111; }
+        .card p { font-size: 0.92rem; color: #495057; margin-bottom: 1.2rem; line-height: 1.4; }
+        .card-buttons { display: flex; gap: 0.6rem; }
         .btn-demo, .btn-solicitar {
             flex: 1;
             text-align: center;
-            padding: 0.6rem 0.4rem;
-            border-radius: 6px;
+            padding: 0.65rem 0.4rem;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
+            transition: background 0.2s ease;
         }
-        .btn-demo { background: #e9ecef; color: #343a40; }
+        .btn-demo { background: #f1f3f5; color: #343a40; }
+        .btn-demo:hover { background: #e9ecef; }
         .btn-solicitar { background: #0d6efd; color: #fff; }
+        .btn-solicitar:hover { background: #0b5ed7; }
+        
         /* Botón Flotante Fijo */
         .whatsapp-float {
             position: fixed;
@@ -82,15 +129,18 @@
             padding: 14px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            transition: transform 0.2s ease;
         }
-        .footer { text-align: center; padding: 1.5rem 1rem; color: #6c757d; font-size: 0.85rem; }
+        .whatsapp-float:active { transform: scale(0.98); }
+        .footer { text-align: center; padding: 2rem 1rem; color: #6c757d; font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -106,8 +156,13 @@
 
             <!-- Restaurante -->
             <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-pop">Más Vendida</span>
+                    <img src="demos/thumbnails/restaurante.jpg" alt="Preview Restaurante" loading="lazy" onerror="this.style.display='none'">
+                    <span style="color:#adb5bd; font-size:0.85rem;">🍽️ Demo Menú</span>
+                </div>
                 <h3>🍽️ Restaurante</h3>
-                <p>Landing moderna para mostrar tu menú, horarios y reservas.</p>
+                <p>Landing moderna para mostrar tu menú interactivo, horarios y reservas directas.</p>
                 <div class="card-buttons">
                     <a href="demos/restaurante_index.html" class="btn-demo">Ver Demo</a>
                     <a href="https://wa.me/50762187478?text=Quiero+la+landing+de+Restaurante" target="_blank" rel="noopener" class="btn-solicitar">Solicitar</a>
@@ -116,8 +171,13 @@
 
             <!-- Tienda Digital -->
             <article class="card">
+                <div class="card-preview">
+                    <span class="badge">Popular</span>
+                    <img src="demos/thumbnails/tienda.jpg" alt="Preview Tienda" loading="lazy" onerror="this.style.display='none'">
+                    <span style="color:#adb5bd; font-size:0.85rem;">🛍️ Demo Tienda</span>
+                </div>
                 <h3>🛍️ Tienda Digital</h3>
-                <p>Presenta tus productos y convierte visitas en ventas online.</p>
+                <p>Presenta tus productos en catálogo y convierte visitas en ventas por WhatsApp.</p>
                 <div class="card-buttons">
                     <a href="demos/tienda.html" class="btn-demo">Ver Demo</a>
                     <a href="https://wa.me/50762187478?text=Quiero+la+landing+de+Tienda+Digital" target="_blank" rel="noopener" class="btn-solicitar">Solicitar</a>
@@ -126,8 +186,13 @@
 
             <!-- Cursos -->
             <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-express">Alta Conversión</span>
+                    <img src="demos/thumbnails/cursos.jpg" alt="Preview Cursos" loading="lazy" onerror="this.style.display='none'">
+                    <span style="color:#adb5bd; font-size:0.85rem;">🎓 Demo Cursos</span>
+                </div>
                 <h3>🎓 Cursos</h3>
-                <p>Landing para promocionar tus cursos y captar nuevos alumnos.</p>
+                <p>Landing para promocionar tus talleres, ebooks o cursos y captar alumnos.</p>
                 <div class="card-buttons">
                     <a href="demos/cursos.html" class="btn-demo">Ver Demo</a>
                     <a href="https://wa.me/50762187478?text=Quiero+la+landing+de+Cursos" target="_blank" rel="noopener" class="btn-solicitar">Solicitar</a>
@@ -136,8 +201,13 @@
 
             <!-- Barberías -->
             <article class="card">
+                <div class="card-preview">
+                    <span class="badge">Nuevo</span>
+                    <img src="demos/thumbnails/barberia.jpg" alt="Preview Barbería" loading="lazy" onerror="this.style.display='none'">
+                    <span style="color:#adb5bd; font-size:0.85rem;">💈 Demo Barbería</span>
+                </div>
                 <h3>💈 Barberías</h3>
-                <p>Ideal para mostrar servicios, precios y reservas de tu barbería.</p>
+                <p>Ideal para mostrar servicios, lista de precios y agendamiento de citas.</p>
                 <div class="card-buttons">
                     <a href="demos/barberia1.html" class="btn-demo">Ver Demo</a>
                     <a href="https://wa.me/50762187478?text=Quiero+la+landing+de+Barber%C3%ADa" target="_blank" rel="noopener" class="btn-solicitar">Solicitar</a>
@@ -146,8 +216,13 @@
 
             <!-- Veterinarias -->
             <article class="card">
+                <div class="card-preview">
+                    <span class="badge">Nuevo</span>
+                    <img src="demos/thumbnails/veterinaria.jpg" alt="Preview Veterinaria" loading="lazy" onerror="this.style.display='none'">
+                    <span style="color:#adb5bd; font-size:0.85rem;">🐾 Demo Veterinaria</span>
+                </div>
                 <h3>🐾 Veterinarias</h3>
-                <p>Muestra tus servicios, horarios y contacto de tu clínica veterinaria.</p>
+                <p>Muestra tus servicios médicos, urgencias y contacto de tu clínica veterinaria.</p>
                 <div class="card-buttons">
                     <a href="demos/veterinaria1.html" class="btn-demo">Ver Demo</a>
                     <a href="https://wa.me/50762187478?text=Quiero+la+landing+de+Veterinaria" target="_blank" rel="noopener" class="btn-solicitar">Solicitar</a>
@@ -156,8 +231,13 @@
 
             <!-- Servicios -->
             <article class="card">
+                <div class="card-preview">
+                    <span class="badge badge-pop">Versátil</span>
+                    <img src="demos/thumbnails/servicios.jpg" alt="Preview Servicios" loading="lazy" onerror="this.style.display='none'">
+                    <span style="color:#adb5bd; font-size:0.85rem;">🛠️ Demo Servicios</span>
+                </div>
                 <h3>🛠️ Servicios</h3>
-                <p>Landing para promocionar cualquier servicio profesional o empresarial.</p>
+                <p>Landing multipropósito para promocionar cualquier servicio profesional o negocio.</p>
                 <div class="card-buttons">
                     <a href="demos/servicios_index.html" class="btn-demo">Ver Demo</a>
                     <a href="https://wa.me/50762187478?text=Quiero+la+landing+de+Servicios" target="_blank" rel="noopener" class="btn-solicitar">Solicitar</a>
